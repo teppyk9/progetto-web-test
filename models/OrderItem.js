@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
-const Order = require('./Order');
-const Product = require('./Product');
+// const Order = require('./Order');
+// const Product = require('./Product');
 
 const OrderItem = sequelize.define('OrderItem', {
   id: {
@@ -48,7 +48,7 @@ const OrderItem = sequelize.define('OrderItem', {
 });
 
 // Define associations
-OrderItem.belongsTo(Order, { foreignKey: 'orderId' });
-OrderItem.belongsTo(Product, { foreignKey: 'productId' });
+// OrderItem.belongsTo(Order, { foreignKey: 'orderId' });
+// OrderItem.belongsTo(Product, { foreignKey: 'productId' });
 
 module.exports = OrderItem;

@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
-const User = require('./User'); // Import User model
-const Product = require('./Product'); // Import Product model
+// const User = require('./User'); // Import User model
+// const Product = require('./Product'); // Import Product model
 
 const Artisan = sequelize.define('Artisan', {
   id: {
@@ -47,7 +47,7 @@ const Artisan = sequelize.define('Artisan', {
 });
 
 // Define associations
-Artisan.belongsTo(User, { foreignKey: 'userId' });
-Artisan.hasMany(Product, { foreignKey: 'artisanId' });
+// Artisan.belongsTo(User, { foreignKey: 'userId' });
+// Artisan.hasMany(Product, { foreignKey: 'artisanId' });
 
 module.exports = Artisan;

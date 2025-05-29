@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
-const User = require('./User'); // Import User model for association
-const OrderItem = require('./OrderItem'); // Import OrderItem model for association
+// const User = require('./User'); // Import User model for association
+// const OrderItem = require('./OrderItem'); // Import OrderItem model for association
 
 const Order = sequelize.define('Order', {
   id: {
@@ -49,7 +49,7 @@ const Order = sequelize.define('Order', {
 });
 
 // Define associations
-Order.belongsTo(User, { foreignKey: 'userId' });
-Order.hasMany(OrderItem, { foreignKey: 'orderId' });
+// Order.belongsTo(User, { foreignKey: 'userId' });
+// Order.hasMany(OrderItem, { foreignKey: 'orderId' });
 
 module.exports = Order;
