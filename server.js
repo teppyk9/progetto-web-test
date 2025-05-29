@@ -69,7 +69,13 @@ app.use('/api/orders', orderRoutes);
 sequelize.sync({ alter: true })
     .then(() => {
         console.log('📦 Database synchronized successfully with models (alter: true).');
-        app.listen(PORT, () => {
+        app.listen(PORT, async () => {
+            try {
+                await sequelize.authenticate();
+                console.log('Connection to PostgreSQL has been established successfully.');
+            } catch (error) {
+                console.error('Unable to connect to the PostgreSQL database:', error);
+            }
             console.log(`✅ Server is running on port ${PORT}`);
             console.log(`🌐 Access the app at: http://localhost:${PORT}/index.html`);
         });
