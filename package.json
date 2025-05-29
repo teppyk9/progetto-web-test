@@ -1,0 +1,24 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teppyk9/progetto-web-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teppyk9/progetto-web-test/issues"
+  },
+  "homepage": "https://github.com/teppyk9/progetto-web-test#readme",
+  "dependencies": {
+    "dotenv": "^16.5.0"
+  }
+}
