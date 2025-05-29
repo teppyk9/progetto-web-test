@@ -67,15 +67,13 @@ app.use('/api/orders', orderRoutes);
 
 // Sync database and then start server
 sequelize.sync({ alter: true })
-  .then(() => {
-    console.log('Database synchronized successfully with models (alter: true).');
-    // Start the server only after successful sync
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
+    .then(() => {
+        console.log('📦 Database synchronized successfully with models (alter: true).');
+        app.listen(PORT, () => {
+            console.log(`✅ Server is running on port ${PORT}`);
+            console.log(`🌐 Access the app at: http://localhost:${PORT}/index.html`);
+        });
+    })
+    .catch(err => {
+        console.error('❌ Error synchronizing database:', err);
     });
-  })
-  .catch(err => {
-    console.error('Error synchronizing database:', err);
-    // Optionally, exit the process if DB sync fails
-    // process.exit(1); 
-  });
