@@ -24,6 +24,6 @@ async function testConnection() {
   }
 }
 
-testConnection();
+// testConnection(); // Commented out as server.js will handle sync
 
 module.exports = sequelize;

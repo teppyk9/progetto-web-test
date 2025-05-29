@@ -3,13 +3,13 @@ const express = require('express');
 const path = require('path');
 const sequelize = require('./config/db'); // Sequelize instance
 
-// Import models (optional here, but good for structure)
-// const User = require('./models/User');
-// const Product = require('./models/Product');
-// const Artisan = require('./models/Artisan');
-// const Order = require('./models/Order');
-// const OrderItem = require('./models/OrderItem');
-// const Cart = require('./models/Cart');
+// Import models to register them with Sequelize
+require('./models/User');
+require('./models/Artisan');
+require('./models/Product');
+require('./models/Cart');
+require('./models/Order');
+require('./models/OrderItem');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -36,20 +36,17 @@ app.use('/api/cart', cartRoutes);
 const orderRoutes = require('./routes/orderRoutes');
 app.use('/api/orders', orderRoutes);
 
-// Database connection and server start
-async function startServer() {
-  try {
-    // await sequelize.sync({ alter: true }); // Sync models with DB - use with caution, alter can modify tables. Consider migrations for production.
-    // For now, we'll just test the connection as db.js already does.
-    await sequelize.authenticate(); // Ensure DB connection is alive
-    console.log('Database connection verified.');
-    
+// Sync database and then start server
+sequelize.sync({ alter: true })
+  .then(() => {
+    console.log('Database synchronized successfully with models (alter: true).');
+    // Start the server only after successful sync
     app.listen(PORT, () => {
-      console.log(`Server is listening on port ${PORT}`);
+      console.log(`Server is running on port ${PORT}`);
     });
-  } catch (error) {
-    console.error('Unable to start the server:', error);
-  }
-}
-
-startServer();
+  })
+  .catch(err => {
+    console.error('Error synchronizing database:', err);
+    // Optionally, exit the process if DB sync fails
+    // process.exit(1); 
+  });

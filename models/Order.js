@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
-// const User = require('./User'); // Import User model for association
+const User = require('./User'); // Import User model for association
+const OrderItem = require('./OrderItem'); // Import OrderItem model for association
 
 const Order = sequelize.define('Order', {
   id: {
@@ -30,11 +31,10 @@ const Order = sequelize.define('Order', {
     type: DataTypes.DECIMAL(10, 2),
     allowNull: false,
   },
-  // Shipping address details can be added here or in a separate model
-  // shippingAddress: {
-  //   type: DataTypes.STRING,
-  //   allowNull: true,
-  // },
+  shippingAddress: { // Shipping address details
+    type: DataTypes.TEXT,
+    allowNull: true,
+  },
   createdAt: {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW,
@@ -49,10 +49,7 @@ const Order = sequelize.define('Order', {
 });
 
 // Define associations
-// Order.belongsTo(User, { foreignKey: 'userId' });
-// User.hasMany(Order, { foreignKey: 'userId' });
-
-// Order will also have many OrderItems
-// Order.hasMany(OrderItem, { foreignKey: 'orderId' });
+Order.belongsTo(User, { foreignKey: 'userId' });
+Order.hasMany(OrderItem, { foreignKey: 'orderId' });
 
 module.exports = Order;

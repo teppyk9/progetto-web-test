@@ -1,5 +1,9 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
+const Artisan = require('./Artisan'); // Import Artisan model
+// Cart and OrderItem will be imported later to avoid circular dependencies if they also import Product
+// For now, we'll use sequelize.models for them in associations if needed immediately,
+// but ideally, associations are defined after all models are defined and registered.
 
 const Product = sequelize.define('Product', {
   id: {
@@ -27,14 +31,13 @@ const Product = sequelize.define('Product', {
     type: DataTypes.STRING,
     allowNull: true,
   },
-  // Eventually, you might want to add a foreign key for Artisan
-  // artisanId: {
-  //   type: DataTypes.INTEGER,
-  //   references: {
-  //     model: 'artisans', // Name of the Artisan table
-  //     key: 'id',
-  //   }
-  // },
+  artisanId: { // Foreign key for Artisan
+    type: DataTypes.INTEGER,
+    references: {
+      model: 'artisans', // Name of the Artisan table
+      key: 'id',
+    }
+  },
   stock: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -53,4 +56,24 @@ const Product = sequelize.define('Product', {
   timestamps: true,
 });
 
+// Define associations
+Product.belongsTo(Artisan, { foreignKey: 'artisanId' });
+
+// Associations to Cart and OrderItem will be added after ensuring those models are defined
+// to avoid circular dependency issues with require().
+// This is often handled by calling an associate method on each model after all models are loaded,
+// or by using sequelize.models.ModelName.
+
 module.exports = Product;
+
+// Late define associations that might cause circular dependencies
+// This is a common pattern: define models, export them, then require and associate them.
+// However, for this tool, I need to put everything in one go.
+// Let's try requiring them and see if the environment handles it.
+// If not, using sequelize.models within the association is the fallback.
+
+const Cart = require('./Cart');
+const OrderItem = require('./OrderItem');
+
+Product.hasMany(Cart, { foreignKey: 'productId' });
+Product.hasMany(OrderItem, { foreignKey: 'productId' });
