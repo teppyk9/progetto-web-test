@@ -23,12 +23,13 @@
           <div class="flex flex-col gap-4">
             <div class="flex gap-3">
               <div
+                      id="artisan-image-sidebar"
                       class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
                       style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDtCQl6M3BHbN8oksJ2TO_y6j2qkQsftv8j4cz5jaVyGBHkGvaSNyXO9qFsQ-RnqPCWVniyaEQ-E5XIc-DuiNbJJ4LFtG-WgfGpdje2e7tQrtrDddI0GLYT0vrfc2Hl2IUuvMVDIRwoMBnTSEzQAKGCrqO4OLiF9Os1kjGDVUqVKZEK6dUqvXbJR8FWZTc7GTkLvPZKugd8QvaLL-oy-bunukAHAZQEipbrJpyBpy0euDnwl3A-CWlcxyy1aD_Bsb--X4V1W6c4iE8");'
               ></div>
               <div class="flex flex-col">
-                <h1 class="text-[#141414] text-base font-medium leading-normal">Sarah Miller</h1>
-                <p class="text-[#757575] text-sm font-normal leading-normal">Artisan</p>
+                <h1 id="artisan-name-sidebar" class="text-[#141414] text-base font-medium leading-normal">Sarah Miller</h1>
+                <p id="artisan-role-sidebar" class="text-[#757575] text-sm font-normal leading-normal">Artisan</p>
               </div>
             </div>
             <div class="flex flex-col gap-2">
@@ -96,28 +97,28 @@
         <div class="flex flex-wrap gap-4 p-4">
           <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 bg-[#f2f2f2]">
             <p class="text-[#141414] text-base font-medium leading-normal">Total Sales</p>
-            <p class="text-[#141414] tracking-light text-2xl font-bold leading-tight">$12,500</p>
-            <p class="text-[#078807] text-base font-medium leading-normal">+15%</p>
+            <p id="stats-total-sales" class="text-[#141414] tracking-light text-2xl font-bold leading-tight">$0</p>
+            <p id="stats-total-sales-percentage" class="text-base font-medium leading-normal">0%</p>
           </div>
           <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 bg-[#f2f2f2]">
             <p class="text-[#141414] text-base font-medium leading-normal">Products Sold</p>
-            <p class="text-[#141414] tracking-light text-2xl font-bold leading-tight">350</p>
-            <p class="text-[#078807] text-base font-medium leading-normal">+10%</p>
+            <p id="stats-products-sold" class="text-[#141414] tracking-light text-2xl font-bold leading-tight">0</p>
+            <p id="stats-products-sold-percentage" class="text-base font-medium leading-normal">0%</p>
           </div>
           <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 bg-[#f2f2f2]">
             <p class="text-[#141414] text-base font-medium leading-normal">Active Listings</p>
-            <p class="text-[#141414] tracking-light text-2xl font-bold leading-tight">50</p>
-            <p class="text-[#e70808] text-base font-medium leading-normal">-5%</p>
+            <p id="stats-active-listings" class="text-[#141414] tracking-light text-2xl font-bold leading-tight">0</p>
+            <p id="stats-active-listings-percentage" class="text-base font-medium leading-normal">0%</p>
           </div>
         </div>
         <h2 class="text-[#141414] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Sales Performance</h2>
         <div class="flex flex-wrap gap-4 px-4 py-6">
           <div class="flex min-w-72 flex-1 flex-col gap-2 rounded-lg border border-[#e0e0e0] p-6">
             <p class="text-[#141414] text-base font-medium leading-normal">Sales Over Time</p>
-            <p class="text-[#141414] tracking-light text-[32px] font-bold leading-tight truncate">$2,500</p>
+            <p id="sales-over-time-value" class="text-[#141414] tracking-light text-[32px] font-bold leading-tight truncate">$0</p>
             <div class="flex gap-1">
-              <p class="text-[#757575] text-base font-normal leading-normal">Last 30 Days</p>
-              <p class="text-[#078807] text-base font-medium leading-normal">+8%</p>
+              <p id="sales-over-time-period" class="text-[#757575] text-base font-normal leading-normal">Last 30 Days</p>
+              <p id="sales-over-time-percentage" class="text-base font-medium leading-normal">0%</p>
             </div>
             <div class="flex min-h-[180px] flex-1 flex-col gap-8 py-4">
               <svg width="100%" height="148" viewBox="-3 0 478 150" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -180,92 +181,8 @@
                 </th>
               </tr>
               </thead>
-              <tbody>
-              <tr class="border-t border-t-[#e0e0e0]">
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-120 h-[72px] px-4 py-2 w-[400px] text-[#141414] text-sm font-normal leading-normal">
-                  Handmade Ceramic Mug
-                </td>
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-240 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">20</td>
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-360 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">$25</td>
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
-                  <button
-                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f2f2f2] text-[#141414] text-sm font-medium leading-normal w-full"
-                  >
-                    <span class="truncate">Active</span>
-                  </button>
-                </td>
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-600 h-[72px] px-4 py-2 w-60 text-[#757575] text-sm font-bold leading-normal tracking-[0.015em]">
-                  <a href="aggiungiProdotto.html">Edit</a>
-                </td>
-              </tr>
-              <tr class="border-t border-t-[#e0e0e0]">
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-120 h-[72px] px-4 py-2 w-[400px] text-[#141414] text-sm font-normal leading-normal">
-                  Knitted Wool Scarf
-                </td>
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-240 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">15</td>
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-360 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">$40</td>
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
-                  <button
-                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f2f2f2] text-[#141414] text-sm font-medium leading-normal w-full"
-                  >
-                    <span class="truncate">Active</span>
-                  </button>
-                </td>
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-600 h-[72px] px-4 py-2 w-60 text-[#757575] text-sm font-bold leading-normal tracking-[0.015em]">
-                  <a href="aggiungiProdotto.html">Edit</a>
-                </td>
-              </tr>
-              <tr class="border-t border-t-[#e0e0e0]">
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-120 h-[72px] px-4 py-2 w-[400px] text-[#141414] text-sm font-normal leading-normal">
-                  Artisan Soap Set
-                </td>
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-240 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">30</td>
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-360 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">$15</td>
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
-                  <button
-                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f2f2f2] text-[#141414] text-sm font-medium leading-normal w-full"
-                  >
-                    <span class="truncate">Active</span>
-                  </button>
-                </td>
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-600 h-[72px] px-4 py-2 w-60 text-[#757575] text-sm font-bold leading-normal tracking-[0.015em]">
-                  <a href="aggiungiProdotto.html">Edit</a>
-                </td>
-              </tr>
-              <tr class="border-t border-t-[#e0e0e0]">
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-120 h-[72px] px-4 py-2 w-[400px] text-[#141414] text-sm font-normal leading-normal">
-                  Leather Wallet
-                </td>
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-240 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">10</td>
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-360 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">$50</td>
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
-                  <button
-                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f2f2f2] text-[#141414] text-sm font-medium leading-normal w-full"
-                  >
-                    <span class="truncate">Active</span>
-                  </button>
-                </td>
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-600 h-[72px] px-4 py-2 w-60 text-[#757575] text-sm font-bold leading-normal tracking-[0.015em]">
-                  <a href="aggiungiProdotto.html">Edit</a>
-                </td>
-              </tr>
-              <tr class="border-t border-t-[#e0e0e0]">
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-120 h-[72px] px-4 py-2 w-[400px] text-[#141414] text-sm font-normal leading-normal">
-                  Wooden Coasters
-                </td>
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-240 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">25</td>
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-360 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">$12</td>
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
-                  <button
-                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f2f2f2] text-[#141414] text-sm font-medium leading-normal w-full"
-                  >
-                    <span class="truncate">Active</span>
-                  </button>
-                </td>
-                <td class="table-a11663c8-d34f-4f17-a716-6de644679ea9-column-600 h-[72px] px-4 py-2 w-60 text-[#757575] text-sm font-bold leading-normal tracking-[0.015em]">
-                  <a href="aggiungiProdotto.html">Edit</a>
-                </td>
-              </tr>
+              <tbody id="dashboard-product-table-tbody">
+                <!-- Product rows will be populated here by JavaScript -->
               </tbody>
             </table>
           </div>
@@ -281,5 +198,7 @@
     </div>
   </div>
 </div>
+<script src="js/main.js"></script>
+<script src="js/dashboard.js"></script>
 </body>
 </html>

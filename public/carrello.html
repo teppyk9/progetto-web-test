@@ -87,13 +87,13 @@
         <div class="flex flex-wrap justify-between gap-3 p-4"><p class="text-[#141414] tracking-light text-[32px] font-bold leading-tight min-w-72">My Orders</p></div>
         <div class="pb-3">
           <div class="flex border-b border-[#e0e0e0] px-4 gap-8">
-            <a class="flex flex-col items-center justify-center border-b-[3px] border-b-[#141414] text-[#141414] pb-[13px] pt-4" href="#">
+            <a id="filter-orders-all" class="flex flex-col items-center justify-center border-b-[3px] border-b-[#141414] text-[#141414] pb-[13px] pt-4" href="#">
               <p class="text-[#141414] text-sm font-bold leading-normal tracking-[0.015em]">All</p>
             </a>
-            <a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#757575] pb-[13px] pt-4" href="#">
+            <a id="filter-orders-active" class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#757575] pb-[13px] pt-4" href="#">
               <p class="text-[#757575] text-sm font-bold leading-normal tracking-[0.015em]">Active</p>
             </a>
-            <a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#757575] pb-[13px] pt-4" href="#">
+            <a id="filter-orders-completed" class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#757575] pb-[13px] pt-4" href="#">
               <p class="text-[#757575] text-sm font-bold leading-normal tracking-[0.015em]">Completed</p>
             </a>
           </div>
@@ -109,49 +109,8 @@
                 <th class="table-1c822903-b156-4e6a-9299-73a5a7bf8902-column-480 px-4 py-3 text-left text-[#141414] w-[400px] text-sm font-medium leading-normal">Total</th>
               </tr>
               </thead>
-              <tbody>
-              <tr class="border-t border-t-[#e0e0e0]">
-                <td class="table-1c822903-b156-4e6a-9299-73a5a7bf8902-column-120 h-[72px] px-4 py-2 w-[400px] text-[#141414] text-sm font-normal leading-normal">#12345</td>
-                <td class="table-1c822903-b156-4e6a-9299-73a5a7bf8902-column-240 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">
-                  July 15, 2024
-                </td>
-                <td class="table-1c822903-b156-4e6a-9299-73a5a7bf8902-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
-                  <button
-                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f2f2f2] text-[#141414] text-sm font-medium leading-normal w-full"
-                  >
-                    <span class="truncate">Shipped</span>
-                  </button>
-                </td>
-                <td class="table-1c822903-b156-4e6a-9299-73a5a7bf8902-column-480 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">$75.00</td>
-              </tr>
-              <tr class="border-t border-t-[#e0e0e0]">
-                <td class="table-1c822903-b156-4e6a-9299-73a5a7bf8902-column-120 h-[72px] px-4 py-2 w-[400px] text-[#141414] text-sm font-normal leading-normal">#12346</td>
-                <td class="table-1c822903-b156-4e6a-9299-73a5a7bf8902-column-240 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">
-                  July 10, 2024
-                </td>
-                <td class="table-1c822903-b156-4e6a-9299-73a5a7bf8902-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
-                  <button
-                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f2f2f2] text-[#141414] text-sm font-medium leading-normal w-full"
-                  >
-                    <span class="truncate">Delivered</span>
-                  </button>
-                </td>
-                <td class="table-1c822903-b156-4e6a-9299-73a5a7bf8902-column-480 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">$120.00</td>
-              </tr>
-              <tr class="border-t border-t-[#e0e0e0]">
-                <td class="table-1c822903-b156-4e6a-9299-73a5a7bf8902-column-120 h-[72px] px-4 py-2 w-[400px] text-[#141414] text-sm font-normal leading-normal">#12347</td>
-                <td class="table-1c822903-b156-4e6a-9299-73a5a7bf8902-column-240 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">
-                  July 5, 2024
-                </td>
-                <td class="table-1c822903-b156-4e6a-9299-73a5a7bf8902-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
-                  <button
-                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f2f2f2] text-[#141414] text-sm font-medium leading-normal w-full"
-                  >
-                    <span class="truncate">Cancelled</span>
-                  </button>
-                </td>
-                <td class="table-1c822903-b156-4e6a-9299-73a5a7bf8902-column-480 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">$50.00</td>
-              </tr>
+              <tbody id="user-orders-tbody">
+                <!-- Order rows will be populated here by JavaScript -->
               </tbody>
             </table>
           </div>
@@ -166,5 +125,7 @@
     </div>
   </div>
 </div>
+<script src="js/main.js"></script>
+<script src="js/carrello.js"></script>
 </body>
 </html>

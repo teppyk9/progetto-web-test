@@ -49,80 +49,98 @@
           </div>
         </div>
         <h2 class="text-[#141414] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Add New Product</h2>
-        <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-          <label class="flex flex-col min-w-40 flex-1">
-            <p class="text-[#141414] text-base font-medium leading-normal pb-2">Product Name</p>
-            <input
-                    placeholder="Enter product name"
-                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#e0e0e0] bg-white focus:border-[#e0e0e0] h-14 placeholder:text-[#757575] p-[15px] text-base font-normal leading-normal"
-                    value=""
-            />
-          </label>
-        </div>
-        <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-          <label class="flex flex-col min-w-40 flex-1">
-            <p class="text-[#141414] text-base font-medium leading-normal pb-2">Description</p>
-            <textarea
-                    placeholder="Describe your product"
-                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#e0e0e0] bg-white focus:border-[#e0e0e0] min-h-36 placeholder:text-[#757575] p-[15px] text-base font-normal leading-normal"
-            ></textarea>
-          </label>
-        </div>
-        <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-          <label class="flex flex-col min-w-40 flex-1">
-            <p class="text-[#141414] text-base font-medium leading-normal pb-2">Category</p>
-            <select
-                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#e0e0e0] bg-white focus:border-[#e0e0e0] h-14 bg-[image:--select-button-svg] placeholder:text-[#757575] p-[15px] text-base font-normal leading-normal"
-            >
-              <option value="one">Select category</option>
-              <option value="two">two</option>
-              <option value="three">three</option>
-            </select>
-          </label>
-        </div>
-        <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-          <label class="flex flex-col min-w-40 flex-1">
-            <p class="text-[#141414] text-base font-medium leading-normal pb-2">Price</p>
-            <input
-                    placeholder="Enter price"
-                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#e0e0e0] bg-white focus:border-[#e0e0e0] h-14 placeholder:text-[#757575] p-[15px] text-base font-normal leading-normal"
-                    value=""
-            />
-          </label>
-        </div>
-        <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-          <label class="flex flex-col min-w-40 flex-1">
-            <p class="text-[#141414] text-base font-medium leading-normal pb-2">Stock Quantity</p>
-            <input
-                    placeholder="Enter stock quantity"
-                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#e0e0e0] bg-white focus:border-[#e0e0e0] h-14 placeholder:text-[#757575] p-[15px] text-base font-normal leading-normal"
-                    value=""
-            />
-          </label>
-        </div>
-        <div class="flex flex-col p-4">
-          <div class="flex flex-col items-center gap-6 rounded-xl border-2 border-dashed border-[#e0e0e0] px-6 py-14">
-            <div class="flex max-w-[480px] flex-col items-center gap-2">
-              <p class="text-[#141414] text-lg font-bold leading-tight tracking-[-0.015em] max-w-[480px] text-center">Upload Product Images</p>
-              <p class="text-[#141414] text-sm font-normal leading-normal max-w-[480px] text-center">Drag and drop images here, or click to select files</p>
-            </div>
+        <form id="add-product-form">
+          <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+            <label class="flex flex-col min-w-40 flex-1">
+              <p class="text-[#141414] text-base font-medium leading-normal pb-2">Product Name</p>
+              <input
+                      id="product-name"
+                      name="name"
+                      placeholder="Enter product name"
+                      class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#e0e0e0] bg-white focus:border-[#e0e0e0] h-14 placeholder:text-[#757575] p-[15px] text-base font-normal leading-normal"
+                      value=""
+              />
+            </label>
+          </div>
+          <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+            <label class="flex flex-col min-w-40 flex-1">
+              <p class="text-[#141414] text-base font-medium leading-normal pb-2">Description</p>
+              <textarea
+                      id="product-description"
+                      name="description"
+                      placeholder="Describe your product"
+                      class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#e0e0e0] bg-white focus:border-[#e0e0e0] min-h-36 placeholder:text-[#757575] p-[15px] text-base font-normal leading-normal"
+              ></textarea>
+            </label>
+          </div>
+          <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+            <label class="flex flex-col min-w-40 flex-1">
+              <p class="text-[#141414] text-base font-medium leading-normal pb-2">Category</p>
+              <select
+                      id="product-category"
+                      name="categoryId"
+                      class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#e0e0e0] bg-white focus:border-[#e0e0e0] h-14 bg-[image:--select-button-svg] placeholder:text-[#757575] p-[15px] text-base font-normal leading-normal"
+              >
+                <option value="">Select category</option>
+                <!-- Categories will be populated by JavaScript -->
+              </select>
+            </label>
+          </div>
+          <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+            <label class="flex flex-col min-w-40 flex-1">
+              <p class="text-[#141414] text-base font-medium leading-normal pb-2">Price</p>
+              <input
+                      id="product-price"
+                      name="price"
+                      type="number"
+                      step="0.01"
+                      placeholder="Enter price (e.g., 25.99)"
+                      class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#e0e0e0] bg-white focus:border-[#e0e0e0] h-14 placeholder:text-[#757575] p-[15px] text-base font-normal leading-normal"
+                      value=""
+              />
+            </label>
+          </div>
+          <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+            <label class="flex flex-col min-w-40 flex-1">
+              <p class="text-[#141414] text-base font-medium leading-normal pb-2">Stock Quantity</p>
+              <input
+                      id="product-stock"
+                      name="stock"
+                      type="number"
+                      step="1"
+                      placeholder="Enter stock quantity"
+                      class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#e0e0e0] bg-white focus:border-[#e0e0e0] h-14 placeholder:text-[#757575] p-[15px] text-base font-normal leading-normal"
+                      value=""
+              />
+            </label>
+          </div>
+          <div class="flex flex-col p-4">
+            <label class="flex flex-col min-w-40 flex-1">
+              <p class="text-[#141414] text-base font-medium leading-normal pb-2">Product Image</p>
+              <input
+                      type="file"
+                      id="product-image"
+                      name="imageFile"
+                      accept="image/*"
+                      class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#e0e0e0] bg-white focus:border-[#e0e0e0] h-14 placeholder:text-[#757575] p-[15px] text-base font-normal leading-normal file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#f2f2f2] file:text-[#141414] hover:file:bg-[#e0e0e0]"
+              />
+            </label>
+          </div>
+          <div class="flex px-4 py-3 justify-end">
             <button
-                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#f2f2f2] text-[#141414] text-sm font-bold leading-normal tracking-[0.015em]"
+                    id="save-product-button"
+                    type="submit"
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-black text-white text-sm font-bold leading-normal tracking-[0.015em]"
             >
-              <span class="truncate">Upload Images</span>
+              <span class="truncate">Save Product</span>
             </button>
           </div>
-        </div>
-        <div class="flex px-4 py-3 justify-end">
-          <button
-                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-black text-white text-sm font-bold leading-normal tracking-[0.015em]"
-          >
-            <span class="truncate">Save Product</span>
-          </button>
-        </div>
+        </form>
       </div>
     </div>
   </div>
 </div>
+<script src="js/main.js"></script>
+<script src="js/aggiungiProdotto.js"></script>
 </body>
 </html>

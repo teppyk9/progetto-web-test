@@ -118,6 +118,7 @@
                                 </svg>
                             </div>
                             <input
+                                    id="search-input"
                                     placeholder="Search for products or artisans"
                                     class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#141414] focus:outline-0 focus:ring-0 border-none bg-[#f2f2f2] focus:border-none h-full placeholder:text-[#757575] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
                                     value=""
@@ -126,7 +127,7 @@
                     </label>
                 </div>
                 <div class="flex gap-3 p-3 flex-wrap pr-4">
-                    <button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#f2f2f2] pl-4 pr-2">
+                    <button id="filter-category-button" class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#f2f2f2] pl-4 pr-2">
                         <p class="text-[#141414] text-sm font-medium leading-normal">Category</p>
                         <div class="text-[#141414]" data-icon="CaretDown" data-size="20px" data-weight="regular">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
@@ -134,7 +135,7 @@
                             </svg>
                         </div>
                     </button>
-                    <button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#f2f2f2] pl-4 pr-2">
+                    <button id="filter-price-button" class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#f2f2f2] pl-4 pr-2">
                         <p class="text-[#141414] text-sm font-medium leading-normal">Price</p>
                         <div class="text-[#141414]" data-icon="CaretDown" data-size="20px" data-weight="regular">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
@@ -142,7 +143,7 @@
                             </svg>
                         </div>
                     </button>
-                    <button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#f2f2f2] pl-4 pr-2">
+                    <button id="filter-availability-button" class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#f2f2f2] pl-4 pr-2">
                         <p class="text-[#141414] text-sm font-medium leading-normal">Availability</p>
                         <div class="text-[#141414]" data-icon="CaretDown" data-size="20px" data-weight="regular">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
@@ -151,67 +152,8 @@
                         </div>
                     </button>
                 </div>
-                <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
-                    <div class="flex flex-col gap-3 pb-3">
-                        <div
-                                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC3Wu9mKX_RpAQ9pO8WZBLsVSe50Uv90uRzsP31n0j04F7vW52nbsUaM4y2yHRemfobj1k-pk1wuLr_eCc_do4WSn-elZuEVvLYD66tscC1pI_iC1O5LHXd4jD8HeQGKljGalvpPN4v7mUl5gWS6fdvs4-dAucxA8D2VEddHBlr68Pdoxe7lw_ol0Fg1KtSfYGar2zt6C1TIrKSMTjbbpwj6NuzHdkiJBqvVjRbc7-fbZFT_6ranU_yfgAcDGuAv6r3bWQiDHmO3zY");'
-                        ></div>
-                        <div>
-                            <p class="text-[#141414] text-base font-medium leading-normal">Handmade Ceramic Vase</p>
-                            <p class="text-[#757575] text-sm font-normal leading-normal">$35</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-3 pb-3">
-                        <div
-                                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCw_aW9GaYtJK_dDcpiqhiOj4QdEaDJIFwDxrtjVtH-yeRKEFXyfVCQdXYLrwC1OH_yWyHWub9a3s3Q9BCnizsuTSXx23Yur3d0goFR30qecvQNpVrBEts15Q3PekWkGnHL6oSLaoemKo620-DPhHcjeet9K4evuP-AhH1VMNiRL4T5oLp2xQUK1GNAusZLjot2PYMDKWib7nEldQltUj6eHKPBLJpxdz6sufE14VKE7Chck9sJuYhzEac7tBJdexi7pTG9wGyApco");'
-                        ></div>
-                        <div>
-                            <p class="text-[#141414] text-base font-medium leading-normal">Woven Basket Set</p>
-                            <p class="text-[#757575] text-sm font-normal leading-normal">$50</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-3 pb-3">
-                        <div
-                                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDq1wHmrXb1APXwO4yEcXgYTSJMPdqygmqmFYcnQ60JdqSgx7777g5_i0dOu65L0DKnibepDmVCewaZX5lUNKvhHo_BXNf8ZnKhvZ20sa-c3C56XpfJpxe3BBeVEoZKxW32Ef9hF4kFS5aGumyoiRgX4Fr8sOEncXo8MYfL3UZCvMTOOjh-_OGIeCMklinJhjXC7Z9NcNmRgvEAaUrN5nGl14hqmyTk9N1_k8H4tEawpBxjba9aDBqCdjZ9LnJ-DaUZhoIhTMiMNMI");'
-                        ></div>
-                        <div>
-                            <p class="text-[#141414] text-base font-medium leading-normal">Artisan Soap Collection</p>
-                            <p class="text-[#757575] text-sm font-normal leading-normal">$20</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-3 pb-3">
-                        <div
-                                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCVeB0uDviwH1Cv3x1ajgoCgdpLQ4DRYadMepi-NxG1None9Uxvjax9s07TYCxzXauxtLkatyxQm0zHVtN9f0-dJUdrDgMEFSy0-TdC70ap7x847_cB3lfbINjdJ1ncMxxrEzjVhPN5LNVAqRzQ1TFAfB4xB9GNnRSWEpwwUTOkALmASql3YN3l-GBvhZvdJHZKzH3FVTpJc6mr3qniZegFK51EXmH7am3uBKyXRWkWir3Ncq9Jh_jXpm_2GC0IP6bV5FSwe0H8bdI");'
-                        ></div>
-                        <div>
-                            <p class="text-[#141414] text-base font-medium leading-normal">Wooden Cutting Board</p>
-                            <p class="text-[#757575] text-sm font-normal leading-normal">$40</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-3 pb-3">
-                        <div
-                                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAVGYDA49SsoQWfS8CntBxhVulBb1JAFclWVSS8oC2iFeKHCYrpmDZlUNFduKB3rNLNuius4buUVyYwjv6s92gJY_ZJ-EVpyWS7zD34Ys4hMu-OxsDFvKEWd-t1rHiJyJ3NVxyN6JCFkf5TaVkr9lN0KUyN3Wvnc3IiDpXlWw0rsCmeoJu51AGiO7ZP3nKPgCH-YNuubY7wKAuiZJDfjXSrIVtcSV3FBz9_czCvNPAqKSlqZXP7hSgHFbYIW_zv-deklREfNUA4Tdg");'
-                        ></div>
-                        <div>
-                            <p class="text-[#141414] text-base font-medium leading-normal">Knitted Scarf</p>
-                            <p class="text-[#757575] text-sm font-normal leading-normal">$25</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-3 pb-3">
-                        <div
-                                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
-                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAuKdCy86SiDl3WIQSLqrSxJ-4PMQKCfLVMOkHPJzx7qvdh7QhDS5jK1mvegqSqXdEt3cN-Lw5Uxt-vnEIhTMOF3poZe0XZEjAaD1VVGNOQ0CY5JZbvHsSwKogOWQNxKIcu0avH7d0QyHGexiS_c4JW-CiP-LywtxP_Eq8J_Xe36Itgi-OtyulNNVIBh3kf_8k6xosJn-rzNoLlmMZzS2W4sf2O3gQU0d5szA_s8PhpbAdekzAnkeud1ehPDi9wR-K0LB6dC0-UIAA");'
-                        ></div>
-                        <div>
-                            <p class="text-[#141414] text-base font-medium leading-normal">Leather Wallet</p>
-                            <p class="text-[#757575] text-sm font-normal leading-normal">$30</p>
-                        </div>
-                    </div>
+                <div id="product-grid-container" class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+                    <!-- Products will be dynamically loaded here -->
                 </div>
             </div>
         </div>
@@ -229,5 +171,7 @@
         </footer>
     </div>
 </div>
+<script src="js/main.js"></script>
+<script src="js/catalogo.js"></script>
 </body>
 </html>
