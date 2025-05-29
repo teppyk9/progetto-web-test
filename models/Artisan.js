@@ -1,5 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
+const User = require('./User'); // Import User model
+const Product = require('./Product'); // Import Product model
 
 const Artisan = sequelize.define('Artisan', {
   id: {
@@ -23,14 +25,14 @@ const Artisan = sequelize.define('Artisan', {
       isEmail: true,
     },
   },
-  // You could link this to a User account if artisans are also users
-  // userId: {
-  //   type: DataTypes.INTEGER,
-  //   references: {
-  //     model: 'users',
-  //     key: 'id',
-  //   }
-  // },
+  userId: { // Link to a User account
+    type: DataTypes.INTEGER,
+    unique: true, // Add this line
+    references: {
+      model: 'users', // Name of the User table
+      key: 'id',
+    }
+  },
   createdAt: {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW,
@@ -44,8 +46,8 @@ const Artisan = sequelize.define('Artisan', {
   timestamps: true,
 });
 
-// Define associations later if needed, e.g.:
-// Artisan.hasMany(Product, { foreignKey: 'artisanId' });
-// Product.belongsTo(Artisan, { foreignKey: 'artisanId' });
+// Define associations
+Artisan.belongsTo(User, { foreignKey: 'userId' });
+Artisan.hasMany(Product, { foreignKey: 'artisanId' });
 
 module.exports = Artisan;
