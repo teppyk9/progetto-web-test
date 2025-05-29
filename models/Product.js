@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
-const Artisan = require('./Artisan'); // Import Artisan model
+// const Artisan = require('./Artisan'); // Import Artisan model
 // Cart and OrderItem will be imported later to avoid circular dependencies if they also import Product
 // For now, we'll use sequelize.models for them in associations if needed immediately,
 // but ideally, associations are defined after all models are defined and registered.
@@ -57,7 +57,7 @@ const Product = sequelize.define('Product', {
 });
 
 // Define associations
-Product.belongsTo(Artisan, { foreignKey: 'artisanId' });
+// Product.belongsTo(Artisan, { foreignKey: 'artisanId' });
 
 // Associations to Cart and OrderItem will be added after ensuring those models are defined
 // to avoid circular dependency issues with require().
@@ -72,8 +72,8 @@ module.exports = Product;
 // Let's try requiring them and see if the environment handles it.
 // If not, using sequelize.models within the association is the fallback.
 
-const Cart = require('./Cart');
-const OrderItem = require('./OrderItem');
+// const Cart = require('./Cart');
+// const OrderItem = require('./OrderItem');
 
-Product.hasMany(Cart, { foreignKey: 'productId' });
-Product.hasMany(OrderItem, { foreignKey: 'productId' });
+// Product.hasMany(Cart, { foreignKey: 'productId' });
+// Product.hasMany(OrderItem, { foreignKey: 'productId' });

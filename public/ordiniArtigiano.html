@@ -26,7 +26,7 @@
               <p class="text-[#757575] text-sm font-normal leading-normal">Handmade Haven</p>
             </div>
             <div class="flex flex-col gap-2">
-              <div class="flex items-center gap-3 px-3 py-2">
+              <a href="dashboard.html" class="flex items-center gap-3 px-3 py-2">
                 <div class="text-[#141414]" data-icon="House" data-size="24px" data-weight="regular">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                     <path
@@ -35,8 +35,8 @@
                   </svg>
                 </div>
                 <p class="text-[#141414] text-sm font-medium leading-normal">Dashboard</p>
-              </div>
-              <div class="flex items-center gap-3 px-3 py-2">
+              </a>
+              <a href="ordiniArtigiano.html" class="flex items-center gap-3 px-3 py-2">
                 <div class="text-[#141414]" data-icon="Package" data-size="24px" data-weight="regular">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                     <path
@@ -45,8 +45,8 @@
                   </svg>
                 </div>
                 <p class="text-[#141414] text-sm font-medium leading-normal">Orders</p>
-              </div>
-              <div class="flex items-center gap-3 px-3 py-2 rounded-full bg-[#f2f2f2]">
+              </a>
+              <a href="magazzino.html" class="flex items-center gap-3 px-3 py-2 rounded-full bg-[#f2f2f2]">
                 <div class="text-[#141414]" data-icon="SquaresFour" data-size="24px" data-weight="fill">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                     <path
@@ -55,8 +55,8 @@
                   </svg>
                 </div>
                 <p class="text-[#141414] text-sm font-medium leading-normal">Products</p>
-              </div>
-              <div class="flex items-center gap-3 px-3 py-2">
+              </a>
+              <a href="#" class="flex items-center gap-3 px-3 py-2">
                 <div class="text-[#141414]" data-icon="Users" data-size="24px" data-weight="regular">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                     <path
@@ -65,8 +65,8 @@
                   </svg>
                 </div>
                 <p class="text-[#141414] text-sm font-medium leading-normal">Customers</p>
-              </div>
-              <div class="flex items-center gap-3 px-3 py-2">
+              </a>
+              <a href="#" class="flex items-center gap-3 px-3 py-2">
                 <div class="text-[#141414]" data-icon="ChartLine" data-size="24px" data-weight="regular">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                     <path
@@ -75,178 +75,114 @@
                   </svg>
                 </div>
                 <p class="text-[#141414] text-sm font-medium leading-normal">Analytics</p>
-              </div>
+              </a>
             </div>
           </div>
         </div>
       </div>
       <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
         <div class="flex flex-wrap justify-between gap-3 p-4">
-          <p class="text-[#141414] tracking-light text-[32px] font-bold leading-tight min-w-72">Products</p>
-          <button
+          <p class="text-[#141414] tracking-light text-[32px] font-bold leading-tight min-w-72">Orders</p> <!-- Corrected Title -->
+          <a href="aggiungiProdotto.html"
                   class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-[#f2f2f2] text-[#141414] text-sm font-medium leading-normal"
           >
             <span class="truncate">Add Product</span>
-          </button>
+          </a>
         </div>
-        <div class="px-4 py-3">
-          <label class="flex flex-col min-w-40 h-12 w-full">
-            <div class="flex w-full flex-1 items-stretch rounded-xl h-full">
-              <div
-                      class="text-[#757575] flex border-none bg-[#f2f2f2] items-center justify-center pl-4 rounded-l-xl border-r-0"
-                      data-icon="MagnifyingGlass"
-                      data-size="24px"
-                      data-weight="regular"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                  <path
-                          d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
-                  ></path>
-                </svg>
-              </div>
-              <input
-                      placeholder="Search products"
-                      class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border-none bg-[#f2f2f2] focus:border-none h-full placeholder:text-[#757575] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
-                      value=""
-              />
-            </div>
-          </label>
-        </div>
-        <h2 class="text-[#141414] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Stock Alerts</h2>
-        <div class="px-4 py-3 @container">
-          <div class="flex overflow-hidden rounded-xl border border-[#e0e0e0] bg-white">
-            <table class="flex-1">
-              <thead>
-              <tr class="bg-white">
-                <th class="table-73b6bc3f-19d1-499a-a8e7-e04c417bdbad-column-120 px-4 py-3 text-left text-[#141414] w-[400px] text-sm font-medium leading-normal">Product</th>
-                <th class="table-73b6bc3f-19d1-499a-a8e7-e04c417bdbad-column-240 px-4 py-3 text-left text-[#141414] w-[400px] text-sm font-medium leading-normal">Stock</th>
-                <th class="table-73b6bc3f-19d1-499a-a8e7-e04c417bdbad-column-360 px-4 py-3 text-left text-[#141414] w-[400px] text-sm font-medium leading-normal">
-                  Alert Threshold
-                </th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr class="border-t border-t-[#e0e0e0]">
-                <td class="table-73b6bc3f-19d1-499a-a8e7-e04c417bdbad-column-120 h-[72px] px-4 py-2 w-[400px] text-[#141414] text-sm font-normal leading-normal">
-                  Hand-Painted Ceramic Mug
-                </td>
-                <td class="table-73b6bc3f-19d1-499a-a8e7-e04c417bdbad-column-240 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">5</td>
-                <td class="table-73b6bc3f-19d1-499a-a8e7-e04c417bdbad-column-360 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">10</td>
-              </tr>
-              <tr class="border-t border-t-[#e0e0e0]">
-                <td class="table-73b6bc3f-19d1-499a-a8e7-e04c417bdbad-column-120 h-[72px] px-4 py-2 w-[400px] text-[#141414] text-sm font-normal leading-normal">
-                  Woven Cotton Scarf
-                </td>
-                <td class="table-73b6bc3f-19d1-499a-a8e7-e04c417bdbad-column-240 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">2</td>
-                <td class="table-73b6bc3f-19d1-499a-a8e7-e04c417bdbad-column-360 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">5</td>
-              </tr>
-              <tr class="border-t border-t-[#e0e0e0]">
-                <td class="table-73b6bc3f-19d1-499a-a8e7-e04c417bdbad-column-120 h-[72px] px-4 py-2 w-[400px] text-[#141414] text-sm font-normal leading-normal">
-                  Artisan Soap Set
-                </td>
-                <td class="table-73b6bc3f-19d1-499a-a8e7-e04c417bdbad-column-240 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">3</td>
-                <td class="table-73b6bc3f-19d1-499a-a8e7-e04c417bdbad-column-360 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">5</td>
-              </tr>
-              </tbody>
-            </table>
+        <div class="pb-3">
+          <div class="flex border-b border-[#e0e0e0] px-4 gap-8">
+            <a class="flex flex-col items-center justify-center border-b-[3px] border-b-[#141414] text-[#141414] pb-[13px] pt-4" href="ordiniArtigiano.html">
+              <p class="text-[#141414] text-sm font-bold leading-normal tracking-[0.015em]">All</p>
+            </a>
+            <a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#757575] pb-[13px] pt-4" href="#">
+              <p class="text-[#757575] text-sm font-bold leading-normal tracking-[0.015em]">Pending</p>
+            </a>
+            <a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#757575] pb-[13px] pt-4" href="#">
+              <p class="text-[#757575] text-sm font-bold leading-normal tracking-[0.015em]">Shipped</p>
+            </a>
+            <a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#757575] pb-[13px] pt-4" href="#">
+              <p class="text-[#757575] text-sm font-bold leading-normal tracking-[0.015em]">Delivered</p>
+            </a>
+            <a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#757575] pb-[13px] pt-4" href="#">
+              <p class="text-[#757575] text-sm font-bold leading-normal tracking-[0.015em]">Cancelled</p>
+            </a>
           </div>
-          <style>
-            @container(max-width:120px){.table-73b6bc3f-19d1-499a-a8e7-e04c417bdbad-column-120{display: none;}}
-            @container(max-width:240px){.table-73b6bc3f-19d1-499a-a8e7-e04c417bdbad-column-240{display: none;}}
-            @container(max-width:360px){.table-73b6bc3f-19d1-499a-a8e7-e04c417bdbad-column-360{display: none;}}
-          </style>
         </div>
-        <h2 class="text-[#141414] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">All Products</h2>
         <div class="px-4 py-3 @container">
           <div class="flex overflow-hidden rounded-xl border border-[#e0e0e0] bg-white">
             <table class="flex-1">
               <thead>
               <tr class="bg-white">
-                <th class="table-56596f31-6753-401f-8311-c34cf551a185-column-120 px-4 py-3 text-left text-[#141414] w-[400px] text-sm font-medium leading-normal">Product</th>
-                <th class="table-56596f31-6753-401f-8311-c34cf551a185-column-240 px-4 py-3 text-left text-[#141414] w-[400px] text-sm font-medium leading-normal">Stock</th>
-                <th class="table-56596f31-6753-401f-8311-c34cf551a185-column-360 px-4 py-3 text-left text-[#141414] w-[400px] text-sm font-medium leading-normal">Price</th>
-                <th class="table-56596f31-6753-401f-8311-c34cf551a185-column-480 px-4 py-3 text-left text-[#141414] w-60 text-sm font-medium leading-normal">Status</th>
+                <th class="table-db523c37-589e-4128-8b76-f0f9a35f759f-column-120 px-4 py-3 text-left text-[#141414] w-[400px] text-sm font-medium leading-normal">Order ID</th>
+                <th class="table-db523c37-589e-4128-8b76-f0f9a35f759f-column-240 px-4 py-3 text-left text-[#141414] w-[400px] text-sm font-medium leading-normal">Date</th>
+                <th class="table-db523c37-589e-4128-8b76-f0f9a35f759f-column-360 px-4 py-3 text-left text-[#141414] w-[400px] text-sm font-medium leading-normal">Customer</th>
+                <th class="table-db523c37-589e-4128-8b76-f0f9a35f759f-column-480 px-4 py-3 text-left text-[#141414] w-60 text-sm font-medium leading-normal">Status</th>
+                <th class="table-db523c37-589e-4128-8b76-f0f9a35f759f-column-600 px-4 py-3 text-left text-[#141414] w-60 text-sm font-medium leading-normal">Actions</th>
               </tr>
               </thead>
               <tbody>
               <tr class="border-t border-t-[#e0e0e0]">
-                <td class="table-56596f31-6753-401f-8311-c34cf551a185-column-120 h-[72px] px-4 py-2 w-[400px] text-[#141414] text-sm font-normal leading-normal">
-                  Hand-Painted Ceramic Mug
+                <td class="table-db523c37-589e-4128-8b76-f0f9a35f759f-column-120 h-[72px] px-4 py-2 w-[400px] text-[#141414] text-sm font-normal leading-normal">#12345</td>
+                <td class="table-db523c37-589e-4128-8b76-f0f9a35f759f-column-240 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">
+                  July 15, 2024
                 </td>
-                <td class="table-56596f31-6753-401f-8311-c34cf551a185-column-240 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">15</td>
-                <td class="table-56596f31-6753-401f-8311-c34cf551a185-column-360 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">$25</td>
-                <td class="table-56596f31-6753-401f-8311-c34cf551a185-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                <td class="table-db523c37-589e-4128-8b76-f0f9a35f759f-column-360 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">John Doe</td>
+                <td class="table-db523c37-589e-4128-8b76-f0f9a35f759f-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
                   <button
                           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-[#f2f2f2] text-[#141414] text-sm font-medium leading-normal w-full"
                   >
-                    <span class="truncate">Active</span>
+                    <span class="truncate">Shipped</span>
                   </button>
+                </td>
+                <td class="table-db523c37-589e-4128-8b76-f0f9a35f759f-column-600 h-[72px] px-4 py-2 w-60 text-[#757575] text-sm font-bold leading-normal tracking-[0.015em]">
+                  <a href="dettaglioOrdineArtigiano.html">View Details</a>
                 </td>
               </tr>
               <tr class="border-t border-t-[#e0e0e0]">
-                <td class="table-56596f31-6753-401f-8311-c34cf551a185-column-120 h-[72px] px-4 py-2 w-[400px] text-[#141414] text-sm font-normal leading-normal">
-                  Woven Cotton Scarf
+                <td class="table-db523c37-589e-4128-8b76-f0f9a35f759f-column-120 h-[72px] px-4 py-2 w-[400px] text-[#141414] text-sm font-normal leading-normal">#12346</td>
+                <td class="table-db523c37-589e-4128-8b76-f0f9a35f759f-column-240 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">
+                  July 10, 2024
                 </td>
-                <td class="table-56596f31-6753-401f-8311-c34cf551a185-column-240 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">8</td>
-                <td class="table-56596f31-6753-401f-8311-c34cf551a185-column-360 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">$40</td>
-                <td class="table-56596f31-6753-401f-8311-c34cf551a185-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                <td class="table-db523c37-589e-4128-8b76-f0f9a35f759f-column-360 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">Jane Smith</td>
+                <td class="table-db523c37-589e-4128-8b76-f0f9a35f759f-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
                   <button
                           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-[#f2f2f2] text-[#141414] text-sm font-medium leading-normal w-full"
                   >
-                    <span class="truncate">Active</span>
+                    <span class="truncate">Delivered</span>
                   </button>
+                </td>
+                <td class="table-db523c37-589e-4128-8b76-f0f9a35f759f-column-600 h-[72px] px-4 py-2 w-60 text-[#757575] text-sm font-bold leading-normal tracking-[0.015em]">
+                  <a href="dettaglioOrdineArtigiano.html">View Details</a>
                 </td>
               </tr>
               <tr class="border-t border-t-[#e0e0e0]">
-                <td class="table-56596f31-6753-401f-8311-c34cf551a185-column-120 h-[72px] px-4 py-2 w-[400px] text-[#141414] text-sm font-normal leading-normal">
-                  Artisan Soap Set
+                <td class="table-db523c37-589e-4128-8b76-f0f9a35f759f-column-120 h-[72px] px-4 py-2 w-[400px] text-[#141414] text-sm font-normal leading-normal">#12347</td>
+                <td class="table-db523c37-589e-4128-8b76-f0f9a35f759f-column-240 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">
+                  July 5, 2024
                 </td>
-                <td class="table-56596f31-6753-401f-8311-c34cf551a185-column-240 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">12</td>
-                <td class="table-56596f31-6753-401f-8311-c34cf551a185-column-360 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">$15</td>
-                <td class="table-56596f31-6753-401f-8311-c34cf551a185-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                <td class="table-db523c37-589e-4128-8b76-f0f9a35f759f-column-360 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">
+                  Robert Johnson
+                </td>
+                <td class="table-db523c37-589e-4128-8b76-f0f9a35f759f-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
                   <button
                           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-[#f2f2f2] text-[#141414] text-sm font-medium leading-normal w-full"
                   >
-                    <span class="truncate">Active</span>
+                    <span class="truncate">Cancelled</span>
                   </button>
                 </td>
-              </tr>
-              <tr class="border-t border-t-[#e0e0e0]">
-                <td class="table-56596f31-6753-401f-8311-c34cf551a185-column-120 h-[72px] px-4 py-2 w-[400px] text-[#141414] text-sm font-normal leading-normal">
-                  Leather Journal
-                </td>
-                <td class="table-56596f31-6753-401f-8311-c34cf551a185-column-240 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">20</td>
-                <td class="table-56596f31-6753-401f-8311-c34cf551a185-column-360 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">$30</td>
-                <td class="table-56596f31-6753-401f-8311-c34cf551a185-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
-                  <button
-                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-[#f2f2f2] text-[#141414] text-sm font-medium leading-normal w-full"
-                  >
-                    <span class="truncate">Active</span>
-                  </button>
-                </td>
-              </tr>
-              <tr class="border-t border-t-[#e0e0e0]">
-                <td class="table-56596f31-6753-401f-8311-c34cf551a185-column-120 h-[72px] px-4 py-2 w-[400px] text-[#141414] text-sm font-normal leading-normal">
-                  Wooden Coaster Set
-                </td>
-                <td class="table-56596f31-6753-401f-8311-c34cf551a185-column-240 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">5</td>
-                <td class="table-56596f31-6753-401f-8311-c34cf551a185-column-360 h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal">$20</td>
-                <td class="table-56596f31-6753-401f-8311-c34cf551a185-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
-                  <button
-                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-[#f2f2f2] text-[#141414] text-sm font-medium leading-normal w-full"
-                  >
-                    <span class="truncate">Active</span>
-                  </button>
+                <td class="table-db523c37-589e-4128-8b76-f0f9a35f759f-column-600 h-[72px] px-4 py-2 w-60 text-[#757575] text-sm font-bold leading-normal tracking-[0.015em]">
+                  <a href="dettaglioOrdineArtigiano.html">View Details</a>
                 </td>
               </tr>
               </tbody>
             </table>
           </div>
           <style>
-            @container(max-width:120px){.table-56596f31-6753-401f-8311-c34cf551a185-column-120{display: none;}}
-            @container(max-width:240px){.table-56596f31-6753-401f-8311-c34cf551a185-column-240{display: none;}}
-            @container(max-width:360px){.table-56596f31-6753-401f-8311-c34cf551a185-column-360{display: none;}}
-            @container(max-width:480px){.table-56596f31-6753-401f-8311-c34cf551a185-column-480{display: none;}}
+            @container(max-width:120px){.table-db523c37-589e-4128-8b76-f0f9a35f759f-column-120{display: none;}}
+            @container(max-width:240px){.table-db523c37-589e-4128-8b76-f0f9a35f759f-column-240{display: none;}}
+            @container(max-width:360px){.table-db523c37-589e-4128-8b76-f0f9a35f759f-column-360{display: none;}}
+            @container(max-width:480px){.table-db523c37-589e-4128-8b76-f0f9a35f759f-column-480{display: none;}}
+            @container(max-width:600px){.table-db523c37-589e-4128-8b76-f0f9a35f759f-column-600{display: none;}}
           </style>
         </div>
       </div>

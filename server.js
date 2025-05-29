@@ -11,6 +11,35 @@ require('./models/Cart');
 require('./models/Order');
 require('./models/OrderItem');
 
+// Define Associations
+const { User, Artisan, Product, Cart, Order, OrderItem } = sequelize.models;
+
+// Artisan associations
+Artisan.belongsTo(User, { foreignKey: 'userId' });
+Artisan.hasMany(Product, { foreignKey: 'artisanId' });
+
+// User associations
+User.hasMany(Cart, { foreignKey: 'userId' });
+User.hasMany(Order, { foreignKey: 'userId' });
+User.hasOne(Artisan, { foreignKey: 'userId' });
+
+// Product associations
+Product.belongsTo(Artisan, { foreignKey: 'artisanId' });
+Product.hasMany(Cart, { foreignKey: 'productId' });
+Product.hasMany(OrderItem, { foreignKey: 'productId' });
+
+// Cart associations
+Cart.belongsTo(User, { foreignKey: 'userId' });
+Cart.belongsTo(Product, { foreignKey: 'productId' });
+
+// Order associations
+Order.belongsTo(User, { foreignKey: 'userId' });
+Order.hasMany(OrderItem, { foreignKey: 'orderId' });
+
+// OrderItem associations
+OrderItem.belongsTo(Order, { foreignKey: 'orderId' });
+OrderItem.belongsTo(Product, { foreignKey: 'productId' });
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
