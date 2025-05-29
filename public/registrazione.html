@@ -43,62 +43,81 @@
             <div class="layout-content-container flex flex-col w-[512px] max-w-[512px] py-5 max-w-[960px] flex-1">
                 <div class="pb-3">
                     <div class="flex border-b border-[#e0e0e0] px-4 gap-8">
-                        <a class="flex flex-col items-center justify-center border-b-[3px] border-b-[#141414] text-[#141414] pb-[13px] pt-4" href="#">
+                        <a id="tab-customer" class="flex flex-col items-center justify-center border-b-[3px] border-b-[#141414] text-[#141414] pb-[13px] pt-4 cursor-pointer">
                             <p class="text-[#141414] text-sm font-bold leading-normal tracking-[0.015em]">Customer</p>
                         </a>
-                        <a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#757575] pb-[13px] pt-4" href="#">
+                        <a id="tab-artisan" class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#757575] pb-[13px] pt-4 cursor-pointer">
                             <p class="text-[#757575] text-sm font-bold leading-normal tracking-[0.015em]">Artisan</p>
                         </a>
                     </div>
                 </div>
                 <h1 class="text-[#141414] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 text-left pb-3 pt-5">Create your account</h1>
-                <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-                    <label class="flex flex-col min-w-40 flex-1">
-                        <input
-                                placeholder="Full Name"
-                                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#141414] focus:outline-0 focus:ring-0 border-none bg-[#f2f2f2] focus:border-none h-14 placeholder:text-[#757575] p-4 text-base font-normal leading-normal"
-                                value=""
-                        />
-                    </label>
-                </div>
-                <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-                    <label class="flex flex-col min-w-40 flex-1">
-                        <input
-                                placeholder="Email"
-                                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#141414] focus:outline-0 focus:ring-0 border-none bg-[#f2f2f2] focus:border-none h-14 placeholder:text-[#757575] p-4 text-base font-normal leading-normal"
-                                value=""
-                        />
-                    </label>
-                </div>
-                <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-                    <label class="flex flex-col min-w-40 flex-1">
-                        <input
-                                placeholder="Password"
-                                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#141414] focus:outline-0 focus:ring-0 border-none bg-[#f2f2f2] focus:border-none h-14 placeholder:text-[#757575] p-4 text-base font-normal leading-normal"
-                                value=""
-                        />
-                    </label>
-                </div>
-                <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-                    <label class="flex flex-col min-w-40 flex-1">
-                        <input
-                                placeholder="Confirm Password"
-                                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#141414] focus:outline-0 focus:ring-0 border-none bg-[#f2f2f2] focus:border-none h-14 placeholder:text-[#757575] p-4 text-base font-normal leading-normal"
-                                value=""
-                        />
-                    </label>
-                </div>
-                <div class="flex px-4 py-3">
-                    <button
-                            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 flex-1 bg-[#141414] text-white text-sm font-bold leading-normal tracking-[0.015em]"
-                    >
-                        <span class="truncate">Sign Up</span>
-                    </button>
-                </div>
+                <form id="registration-form">
+                    <input type="hidden" id="user-type" name="userType" value="customer">
+                    <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+                        <label class="flex flex-col min-w-40 flex-1">
+                            <input
+                                    id="reg-fullname"
+                                    name="fullName"
+                                    placeholder="Full Name"
+                                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#141414] focus:outline-0 focus:ring-0 border-none bg-[#f2f2f2] focus:border-none h-14 placeholder:text-[#757575] p-4 text-base font-normal leading-normal"
+                                    value=""
+                            />
+                        </label>
+                    </div>
+                    <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+                        <label class="flex flex-col min-w-40 flex-1">
+                            <input
+                                    id="reg-email"
+                                    name="email"
+                                    type="email"
+                                    placeholder="Email"
+                                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#141414] focus:outline-0 focus:ring-0 border-none bg-[#f2f2f2] focus:border-none h-14 placeholder:text-[#757575] p-4 text-base font-normal leading-normal"
+                                    value=""
+                            />
+                        </label>
+                    </div>
+                    <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+                        <label class="flex flex-col min-w-40 flex-1">
+                            <input
+                                    id="reg-password"
+                                    name="password"
+                                    type="password"
+                                    placeholder="Password"
+                                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#141414] focus:outline-0 focus:ring-0 border-none bg-[#f2f2f2] focus:border-none h-14 placeholder:text-[#757575] p-4 text-base font-normal leading-normal"
+                                    value=""
+                            />
+                        </label>
+                    </div>
+                    <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+                        <label class="flex flex-col min-w-40 flex-1">
+                            <input
+                                    id="reg-confirm-password"
+                                    name="confirmPassword"
+                                    type="password"
+                                    placeholder="Confirm Password"
+                                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#141414] focus:outline-0 focus:ring-0 border-none bg-[#f2f2f2] focus:border-none h-14 placeholder:text-[#757575] p-4 text-base font-normal leading-normal"
+                                    value=""
+                            />
+                        </label>
+                    </div>
+                    <p id="registration-error-message" class="text-red-500 text-sm px-4 py-2 min-h-[1.5em]"></p>
+                    <div class="flex px-4 py-3">
+                        <button
+                                id="signup-button"
+                                type="submit"
+                                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 flex-1 bg-[#141414] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+                        >
+                            <span class="truncate">Sign Up</span>
+                        </button>
+                    </div>
+                </form>
                 <a href="login.html" class="text-[#757575] text-sm font-normal leading-normal pb-3 pt-1 px-4 text-center underline">Already have an account? Log in</a>
             </div>
         </div>
     </div>
 </div>
+<script src="js/main.js"></script>
+<script src="js/registrazione.js"></script>
 </body>
 </html>

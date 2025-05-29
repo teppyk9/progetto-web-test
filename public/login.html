@@ -57,38 +57,51 @@
     <div class="px-40 flex flex-1 justify-center py-5">
       <div class="layout-content-container flex flex-col w-[512px] max-w-[512px] py-5 max-w-[960px] flex-1">
         <h2 class="text-[#141414] tracking-light text-[28px] font-bold leading-tight px-4 text-center pb-3 pt-5">Welcome back</h2>
-        <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-          <label class="flex flex-col min-w-40 flex-1">
-            <p class="text-[#141414] text-base font-medium leading-normal pb-2">Email</p>
-            <input
-                    placeholder="Enter your email"
-                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#e0e0e0] bg-white focus:border-[#e0e0e0] h-14 placeholder:text-[#757575] p-[15px] text-base font-normal leading-normal"
-                    value=""
-            />
-          </label>
-        </div>
-        <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-          <label class="flex flex-col min-w-40 flex-1">
-            <p class="text-[#141414] text-base font-medium leading-normal pb-2">Password</p>
-            <input
-                    placeholder="Enter your password"
-                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#e0e0e0] bg-white focus:border-[#e0e0e0] h-14 placeholder:text-[#757575] p-[15px] text-base font-normal leading-normal"
-                    value=""
-            />
-          </label>
-        </div>
-        <a href="#" class="text-[#757575] text-sm font-normal leading-normal pb-3 pt-1 px-4 underline">Forgot password?</a>
-        <div class="flex px-4 py-3">
-          <button
-                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 flex-1 bg-black text-white text-sm font-bold leading-normal tracking-[0.015em]"
-          >
-            <span class="truncate">Log in</span>
-          </button>
-        </div>
+        <form id="login-form">
+          <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+            <label class="flex flex-col min-w-40 flex-1">
+              <p class="text-[#141414] text-base font-medium leading-normal pb-2">Email</p>
+              <input
+                      id="login-email"
+                      name="email"
+                      type="email"
+                      placeholder="Enter your email"
+                      class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#e0e0e0] bg-white focus:border-[#e0e0e0] h-14 placeholder:text-[#757575] p-[15px] text-base font-normal leading-normal"
+                      value=""
+              />
+            </label>
+          </div>
+          <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+            <label class="flex flex-col min-w-40 flex-1">
+              <p class="text-[#141414] text-base font-medium leading-normal pb-2">Password</p>
+              <input
+                      id="login-password"
+                      name="password"
+                      type="password"
+                      placeholder="Enter your password"
+                      class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#e0e0e0] bg-white focus:border-[#e0e0e0] h-14 placeholder:text-[#757575] p-[15px] text-base font-normal leading-normal"
+                      value=""
+              />
+            </label>
+          </div>
+          <a href="#" class="text-[#757575] text-sm font-normal leading-normal pb-3 pt-1 px-4 underline">Forgot password?</a>
+          <p id="login-error-message" class="text-red-500 text-sm px-4 py-2 min-h-[1.5em]"></p> <!-- Min height to prevent layout shift -->
+          <div class="flex px-4 py-3">
+            <button
+                    id="login-button"
+                    type="submit"
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 flex-1 bg-black text-white text-sm font-bold leading-normal tracking-[0.015em]"
+            >
+              <span class="truncate">Log in</span>
+            </button>
+          </div>
+        </form>
         <a href="registrazione.html" class="text-[#757575] text-sm font-normal leading-normal pb-3 pt-1 px-4 text-center underline">Don't have an account? Sign up</a>
       </div>
     </div>
   </div>
 </div>
+<script src="js/main.js"></script>
+<script src="js/login.js"></script>
 </body>
 </html>
