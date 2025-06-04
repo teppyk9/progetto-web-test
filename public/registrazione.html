@@ -9,7 +9,7 @@
             href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
     />
 
-    <title>Stitch Design</title>
+    <title>Artigianato Online</title>
     <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -25,11 +25,12 @@
                 <h2 class="text-[#141414] text-lg font-bold leading-tight tracking-[-0.015em]">Crafty</h2>
             </div>
             <div class="flex flex-1 justify-end gap-8">
-                <div class="flex items-center gap-9">
-                    <a class="text-[#141414] text-sm font-medium leading-normal" href="index.html">Home</a>
-                    <a class="text-[#141414] text-sm font-medium leading-normal" href="catalogo.html">Shop</a>
-                    <a class="text-[#141414] text-sm font-medium leading-normal" href="magazzino.html">Artisans</a>
-                </div>
+            <div class="flex items-center gap-9">
+                <a class="text-[#141414] text-sm font-medium leading-normal" href="index.html">Home</a>
+                <a class="text-[#141414] text-sm font-medium leading-normal" href="catalogo.html">Prodotti</a>
+                <a class="text-[#141414] text-sm font-medium leading-normal" href="about.html">Chi siamo</a>
+                <a class="text-[#141414] text-sm font-medium leading-normal" href="contatti.html">Contatti</a>
+            </div>
                 <a href="login.html">
                     <button
                             class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#f2f2f2] text-[#141414] text-sm font-bold leading-normal tracking-[0.015em]"
@@ -44,14 +45,14 @@
                 <div class="pb-3">
                     <div class="flex border-b border-[#e0e0e0] px-4 gap-8">
                         <a id="tab-customer" class="flex flex-col items-center justify-center border-b-[3px] border-b-[#141414] text-[#141414] pb-[13px] pt-4 cursor-pointer">
-                            <p class="text-[#141414] text-sm font-bold leading-normal tracking-[0.015em]">Customer</p>
+                            <p class="text-[#141414] text-sm font-bold leading-normal tracking-[0.015em]">Cliente</p>
                         </a>
                         <a id="tab-artisan" class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#757575] pb-[13px] pt-4 cursor-pointer">
-                            <p class="text-[#757575] text-sm font-bold leading-normal tracking-[0.015em]">Artisan</p>
+                            <p class="text-[#757575] text-sm font-bold leading-normal tracking-[0.015em]">Artigiano</p>
                         </a>
                     </div>
                 </div>
-                <h1 class="text-[#141414] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 text-left pb-3 pt-5">Create your account</h1>
+                <h1 class="text-[#141414] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 text-left pb-3 pt-5">Crea un Account</h1>
                 <form id="registration-form">
                     <input type="hidden" id="user-type" name="userType" value="customer">
                     <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
@@ -59,7 +60,7 @@
                             <input
                                     id="reg-fullname"
                                     name="fullName"
-                                    placeholder="Full Name"
+                                    placeholder="Nome Cognome"
                                     class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#141414] focus:outline-0 focus:ring-0 border-none bg-[#f2f2f2] focus:border-none h-14 placeholder:text-[#757575] p-4 text-base font-normal leading-normal"
                                     value=""
                             />
@@ -95,7 +96,7 @@
                                     id="reg-confirm-password"
                                     name="confirmPassword"
                                     type="password"
-                                    placeholder="Confirm Password"
+                                    placeholder="Conferma Password"
                                     class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#141414] focus:outline-0 focus:ring-0 border-none bg-[#f2f2f2] focus:border-none h-14 placeholder:text-[#757575] p-4 text-base font-normal leading-normal"
                                     value=""
                             />
@@ -108,11 +109,11 @@
                                 type="submit"
                                 class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 flex-1 bg-[#141414] text-white text-sm font-bold leading-normal tracking-[0.015em]"
                         >
-                            <span class="truncate">Sign Up</span>
+                            <span class="truncate">Registrati</span>
                         </button>
                     </div>
                 </form>
-                <a href="login.html" class="text-[#757575] text-sm font-normal leading-normal pb-3 pt-1 px-4 text-center underline">Already have an account? Log in</a>
+                <a href="login.html" class="text-[#757575] text-sm font-normal leading-normal pb-3 pt-1 px-4 text-center underline">hai già un account? Accedi!</a>
             </div>
         </div>
     </div>

@@ -52,7 +52,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Basic test route
 app.get('/', (req, res) => {
-  res.send('Artigianato Online server is running!');
+  res.send('Il server di Artigianato Online è in esecuzione!');
 });
 
 // Define Routes
@@ -68,18 +68,18 @@ app.use('/api/orders', orderRoutes);
 // Sync database and then start server
 sequelize.sync({ alter: true })
     .then(() => {
-        console.log('📦 Database synchronized successfully with models (alter: true).');
+        console.log('📦 Database sincronizzato con successo!');
         app.listen(PORT, async () => {
             try {
                 await sequelize.authenticate();
-                console.log('Connection to PostgreSQL has been established successfully.');
+                console.log('La connessione a PostgreSQL è stata stabilita con successo.');
             } catch (error) {
-                console.error('Unable to connect to the PostgreSQL database:', error);
+                console.error('Impossibile connettersi al database PostgreSQL:', error);
             }
-            console.log(`✅ Server is running on port ${PORT}`);
-            console.log(`🌐 Access the app at: http://localhost:${PORT}/index.html`);
+            console.log(`✅ Server attivo sulla porta ${PORT}`);
+            console.log(`🌐 Accedi al sito su: http://localhost:${PORT}/index.html`);
         });
     })
     .catch(err => {
-        console.error('❌ Error synchronizing database:', err);
+        console.error('❌ Errore nella sincronizzazione del database:', err);
     });
