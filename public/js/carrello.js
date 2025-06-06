@@ -1,47 +1,47 @@
 document.addEventListener('DOMContentLoaded', () => {
   let userOrders = [];
-  let currentFilter = 'All'; // Initial filter
+  let currentFilter = 'All'; // Filtro iniziale
 
   const ordersTbody = document.getElementById('user-orders-tbody');
   const filterAllTab = document.getElementById('filter-orders-all');
   const filterActiveTab = document.getElementById('filter-orders-active');
   const filterCompletedTab = document.getElementById('filter-orders-completed');
 
-  const activeOrderStatuses = ["Processing", "Shipped", "Pending"]; // Define what counts as an active order
-  const completedOrderStatuses = ["Delivered"]; // Define what counts as a completed order
+  const activeOrderStatuses = ["Processing", "Shipped", "Pending"]; // Definizione ordini attivi
+  const completedOrderStatuses = ["Delivered"]; // Definizione ordini completati
 
-  // --- Fetch User Orders ---
+  // --- Recupera gli ordini dell'utente ---
   if (ordersTbody) {
     fetch('/api/user/orders')
-      .then(response => {
-        if (!response.ok) {
-          if (response.status === 401) {
-            throw new Error('Unauthorized: Please log in to view your orders.');
+        .then(response => {
+          if (!response.ok) {
+            if (response.status === 401) {
+              throw new Error('Non autorizzato: accedi per visualizzare i tuoi ordini.');
+            }
+            throw new Error(`Errore HTTP! stato: ${response.status}`);
           }
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(orders => {
-        userOrders = orders;
-        renderOrders(); // Initial render with 'All' filter
-        updateActiveTabStyle();
-      })
-      .catch(error => {
-        console.error('Error fetching user orders:', error);
-        ordersTbody.innerHTML = `<tr><td colspan="4" class="text-red-500 p-4 text-center">${error.message || 'Could not load your orders.'}</td></tr>`;
-      });
+          return response.json();
+        })
+        .then(orders => {
+          userOrders = orders;
+          renderOrders(); // Primo render con filtro 'All'
+          updateActiveTabStyle();
+        })
+        .catch(error => {
+          console.error('Errore nel recupero degli ordini:', error);
+          ordersTbody.innerHTML = `<tr><td colspan="4" class="text-red-500 p-4 text-center">${error.message || 'Impossibile caricare i tuoi ordini.'}</td></tr>`;
+        });
   } else {
-    console.warn('User orders table body not found.');
+    console.warn('Corpo tabella ordini utente non trovato.');
   }
 
-  // --- Render Orders Function ---
+  // --- Funzione per il rendering degli ordini ---
   function renderOrders() {
     if (!ordersTbody) {
-      console.warn('User orders table body not found for rendering.');
+      console.warn('Corpo tabella ordini utente non trovato per il rendering.');
       return;
     }
-    ordersTbody.innerHTML = ''; // Clear existing rows
+    ordersTbody.innerHTML = ''; // Pulisce le righe esistenti
 
     let filteredOrders = userOrders;
     if (currentFilter === 'Active') {
@@ -49,10 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (currentFilter === 'Completed') {
       filteredOrders = userOrders.filter(order => completedOrderStatuses.includes(order.status));
     }
-    // 'All' uses all orders, so no specific filtering needed here
 
     if (filteredOrders.length === 0) {
-      ordersTbody.innerHTML = `<tr><td colspan="4" class="text-gray-500 p-4 text-center">No orders found for this filter.</td></tr>`;
+      ordersTbody.innerHTML = `<tr><td colspan="4" class="text-gray-500 p-4 text-center">Nessun ordine trovato per questo filtro.</td></tr>`;
       return;
     }
 
@@ -60,42 +59,41 @@ document.addEventListener('DOMContentLoaded', () => {
       const tr = document.createElement('tr');
       tr.className = 'border-t border-t-[#e0e0e0]';
 
-      // Order ID
+      // ID ordine
       const tdOrderId = document.createElement('td');
       tdOrderId.className = 'h-[72px] px-4 py-2 w-[400px] text-[#141414] text-sm font-normal leading-normal';
-      tdOrderId.textContent = order.orderId || 'N/A';
+      tdOrderId.textContent = order.orderId || 'N/D';
       tr.appendChild(tdOrderId);
 
-      // Date
+      // Data
       const tdDate = document.createElement('td');
       tdDate.className = 'h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal';
-      // Format date if necessary, assuming it's a string for now
-      tdDate.textContent = order.date ? new Date(order.date).toLocaleDateString() : 'N/A';
+      tdDate.textContent = order.date ? new Date(order.date).toLocaleDateString() : 'N/D';
       tr.appendChild(tdDate);
 
-      // Status
+      // Stato
       const tdStatus = document.createElement('td');
       tdStatus.className = 'h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal';
       const statusButton = document.createElement('button');
       statusButton.className = 'flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f2f2f2] text-[#141414] text-sm font-medium leading-normal w-full';
       const statusSpan = document.createElement('span');
       statusSpan.className = 'truncate';
-      statusSpan.textContent = order.status || 'N/A';
+      statusSpan.textContent = order.status || 'N/D';
       statusButton.appendChild(statusSpan);
       tdStatus.appendChild(statusButton);
       tr.appendChild(tdStatus);
 
-      // Total
+      // Totale
       const tdTotal = document.createElement('td');
       tdTotal.className = 'h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal';
-      tdTotal.textContent = order.total !== undefined ? `$${order.total.toFixed(2)}` : 'N/A';
+      tdTotal.textContent = order.total !== undefined ? `€${order.total.toFixed(2)}` : 'N/D';
       tr.appendChild(tdTotal);
 
       ordersTbody.appendChild(tr);
     });
   }
 
-  // --- Update Tab Styles ---
+  // --- Aggiorna lo stile delle tab ---
   function updateActiveTabStyle() {
     const tabs = [filterAllTab, filterActiveTab, filterCompletedTab];
     tabs.forEach(tab => {
@@ -111,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           tab.classList.remove('border-b-[#141414]', 'text-[#141414]');
           tab.classList.add('border-b-transparent', 'text-[#757575]');
-           if (pElement) {
+          if (pElement) {
             pElement.classList.remove('text-[#141414]');
             pElement.classList.add('text-[#757575]');
           }
@@ -120,18 +118,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-
-  // --- Tab Filtering Logic ---
+  // --- Logica per il filtraggio tramite tab ---
   function setupTabListener(tabElement, filterName) {
     if (tabElement) {
       tabElement.addEventListener('click', (event) => {
-        event.preventDefault(); // Prevent default anchor behavior
+        event.preventDefault();
         currentFilter = filterName;
         renderOrders();
         updateActiveTabStyle();
       });
     } else {
-      console.warn(`Filter tab for '${filterName}' not found.`);
+      console.warn(`Scheda filtro per '${filterName}' non trovata.`);
     }
   }
 
@@ -139,6 +136,5 @@ document.addEventListener('DOMContentLoaded', () => {
   setupTabListener(filterActiveTab, 'Active');
   setupTabListener(filterCompletedTab, 'Completed');
 
-  // Set initial active tab style (should be 'All' by default)
   updateActiveTabStyle();
 });

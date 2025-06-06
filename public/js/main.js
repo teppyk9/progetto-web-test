@@ -1,17 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Header navigation links
-  const homeLinks = document.querySelectorAll('a[href="#"]'); // Generalize if specific IDs/classes are available
+  // Link di navigazione nell'header
+  const homeLinks = document.querySelectorAll('a[href="#"]'); // Generalizza se ci sono ID/classi specifiche disponibili
   const navLinks = {
-    'Home': '/index.html', // Assuming index.html is the homepage
-    'Artisans': '/artigiani.html', // Placeholder, assuming a page for artisans
+    'Home': '/index.html', // Si assume che index.html sia la homepage
+    'Artisans': '/artigiani.html', // Segnaposto, si presume una pagina per artigiani
     'Products': '/catalogo.html',
-    'Categories': '/catalogo.html', // Categories might also go to catalog
+    'Categories': '/catalogo.html', // Le categorie potrebbero puntare anch'esse al catalogo
     'About Us': '/about.html',
     'About': '/about.html',
     'Shop': '/catalogo.html',
     'Contact Us': '/contatti.html',
-    'Privacy Policy': '/privacy.html', // Placeholder
-    'Terms of Service': '/terms.html', // Placeholder
+    'Privacy Policy': '/privacy.html', // Segnaposto
+    'Terms of Service': '/terms.html', // Segnaposto
   };
 
   homeLinks.forEach(link => {
@@ -21,12 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Specific icon links in header
+  // Link specifici delle icone nell'header
   const header = document.querySelector('header');
   if (header) {
     const cartIconLink = header.querySelector('button > div[data-icon="ShoppingBag"]');
     if (cartIconLink) {
-      // Make the parent button clickable and navigate to carrello.html
+      // Rende cliccabile il pulsante genitore e naviga a carrello.html
       const cartButton = cartIconLink.closest('button');
       if (cartButton) {
         cartButton.addEventListener('click', () => {
@@ -37,19 +37,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const wishlistIconLink = header.querySelector('button > div[data-icon="Heart"]');
     if (wishlistIconLink) {
-        const wishlistButton = wishlistIconLink.closest('button');
-        if (wishlistButton) {
-            wishlistButton.addEventListener('click', () => {
-                // Placeholder for wishlist functionality or navigation
-                // For now, let's assume it might go to a favorites page or open a modal
-                // window.location.href = '/favorites.html'; // Example
-                console.log('Wishlist icon clicked');
-            });
-        }
+      const wishlistButton = wishlistIconLink.closest('button');
+      if (wishlistButton) {
+        wishlistButton.addEventListener('click', () => {
+          // Segnaposto per funzionalità wishlist o navigazione
+          // Per ora, si presume possa andare a una pagina preferiti o aprire una finestra modale
+          // window.location.href = '/favorites.html'; // Esempio
+          console.log('Icona wishlist cliccata');
+        });
+      }
     }
   }
 
-  // Footer links (similar logic if they also use href="#")
+  // Link nel footer (logica simile se anche loro usano href="#")
   const footerLinks = document.querySelectorAll('footer a[href="#"]');
   footerLinks.forEach(link => {
     const linkText = link.textContent.trim();

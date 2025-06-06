@@ -10,34 +10,34 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Fetch Products ---
   if (productGridContainer) {
     fetch('/api/products')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(products => {
-        allProducts = products;
-        renderProducts(allProducts);
-      })
-      .catch(error => {
-        console.error('Error fetching products:', error);
-        productGridContainer.innerHTML = '<p class="text-red-500">Could not load products.</p>';
-      });
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(products => {
+          allProducts = products;
+          renderProducts(allProducts);
+        })
+        .catch(error => {
+          console.error('Errore nel caricamento dei prodotti:', error);
+          productGridContainer.innerHTML = '<p class="text-red-500">Impossibile caricare i prodotti.</p>';
+        });
   } else {
-    console.warn('Product grid container not found.');
+    console.warn('Contenitore della griglia dei prodotti non trovato.');
   }
 
   // --- Render Products Function ---
   function renderProducts(productsToRender) {
     if (!productGridContainer) {
-      console.warn('Product grid container not found for rendering.');
+      console.warn('Contenitore della griglia dei prodotti non trovato per il rendering.');
       return;
     }
     productGridContainer.innerHTML = ''; // Clear existing products
 
     if (productsToRender.length === 0) {
-      productGridContainer.innerHTML = '<p class="text-gray-500">No products found.</p>';
+      productGridContainer.innerHTML = '<p class="text-gray-500">Nessun prodotto trovato.</p>';
       return;
     }
 
@@ -56,16 +56,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const priceP = document.createElement('p');
       priceP.className = 'text-[#757575] text-sm font-normal leading-normal';
-      priceP.textContent = `$${product.price}`;
+      priceP.textContent = `€${product.price}`;
 
       // Optional: Add category or availability
       // const categoryP = document.createElement('p');
       // categoryP.className = 'text-[#757575] text-xs font-normal';
-      // categoryP.textContent = `Category: ${product.category || 'N/A'}`;
+      // categoryP.textContent = `Categoria: ${product.category || 'N/D'}`;
 
       // const availabilityP = document.createElement('p');
       // availabilityP.className = 'text-[#757575] text-xs font-normal';
-      // availabilityP.textContent = `Availability: ${product.availability || 'N/A'}`;
+      // availabilityP.textContent = `Disponibilità: ${product.availability || 'N/D'}`;
 
       infoDiv.appendChild(nameP);
       infoDiv.appendChild(priceP);
@@ -83,20 +83,20 @@ document.addEventListener('DOMContentLoaded', () => {
     searchInput.addEventListener('input', (event) => {
       const searchTerm = event.target.value.toLowerCase();
       const filteredProducts = allProducts.filter(product =>
-        product.name.toLowerCase().includes(searchTerm)
+          product.name.toLowerCase().includes(searchTerm)
       );
       renderProducts(filteredProducts);
     });
   } else {
-    console.warn('Search input not found.');
+    console.warn('Campo di ricerca non trovato.');
   }
 
   // --- Filter Functionality (Basic Placeholders) ---
   if (filterCategoryButton) {
     filterCategoryButton.addEventListener('click', () => {
-      console.log('Category filter clicked');
-      // Example: Prompt for category and filter
-      // const category = prompt("Enter category to filter by (e.g., Ceramics, Woodworking):");
+      console.log('Filtro per categoria cliccato');
+      // Esempio: Prompt per la categoria e filtro
+      // const category = prompt("Inserisci la categoria da filtrare (es. Ceramica, Legno):");
       // if (category) {
       //   const filteredProducts = allProducts.filter(product =>
       //     product.category && product.category.toLowerCase() === category.toLowerCase()
@@ -105,24 +105,25 @@ document.addEventListener('DOMContentLoaded', () => {
       // }
     });
   } else {
-    console.warn('Filter category button not found.');
+    console.warn('Pulsante filtro categoria non trovato.');
   }
 
   if (filterPriceButton) {
     filterPriceButton.addEventListener('click', () => {
-      console.log('Price filter clicked');
-      // Placeholder for price filtering logic
+      console.log('Filtro per prezzo cliccato');
+      // Placeholder per la logica di filtro del prezzo
     });
   } else {
-    console.warn('Filter price button not found.');
+    console.warn('Pulsante filtro prezzo non trovato.');
   }
 
   if (filterAvailabilityButton) {
     filterAvailabilityButton.addEventListener('click', () => {
-      console.log('Availability filter clicked');
-      // Placeholder for availability filtering logic
+      console.log('Filtro per disponibilità cliccato');
+      // Placeholder per la logica di filtro della disponibilità
     });
   } else {
-    console.warn('Filter availability button not found.');
+    console.warn('Pulsante filtro disponibilità non trovato.');
   }
 });
+

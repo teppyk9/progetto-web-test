@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loginForm.addEventListener('submit', function(event) {
       event.preventDefault();
 
-      // Clear previous error messages
+      // Pulisci i messaggi di errore precedenti
       if (loginErrorMessage) {
         loginErrorMessage.textContent = '';
       }
@@ -17,26 +17,26 @@ document.addEventListener('DOMContentLoaded', () => {
       const email = loginEmailInput.value.trim();
       const password = loginPasswordInput.value.trim();
 
-      // Basic Validation
+      // Validazione di base
       if (!email) {
-        if (loginErrorMessage) loginErrorMessage.textContent = 'Please enter your email.';
+        if (loginErrorMessage) loginErrorMessage.textContent = 'Per favore inserisci la tua email.';
         loginEmailInput.focus();
         return;
       }
       if (!password) {
-        if (loginErrorMessage) loginErrorMessage.textContent = 'Please enter your password.';
+        if (loginErrorMessage) loginErrorMessage.textContent = 'Per favore inserisci la tua password.';
         loginPasswordInput.focus();
         return;
       }
 
-      // Disable button during API call
+      // Disabilita il pulsante durante la chiamata API
       if (loginButton) {
         loginButton.disabled = true;
         const loginButtonSpan = loginButton.querySelector('span');
-        if (loginButtonSpan) loginButtonSpan.textContent = 'Logging in...';
+        if (loginButtonSpan) loginButtonSpan.textContent = 'Accesso in corso...';
       }
 
-      // API Call
+      // Chiamata API
       fetch('/api/auth/login', {
         method: 'POST',
         headers: {
@@ -44,52 +44,52 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         body: JSON.stringify({ email: email, password: password }),
       })
-      .then(response => {
-        if (!response.ok) {
-          // Attempt to parse error from response body
-          return response.json().then(errData => {
-            // Throw an error with the message from the server or a default one
-            throw new Error(errData.message || `Login failed. Status: ${response.status}`);
-          }).catch(() => {
-            // Fallback if response is not JSON or errData.message is not present
-            throw new Error(`Login failed. Status: ${response.status} - ${response.statusText}`);
+          .then(response => {
+            if (!response.ok) {
+              // Prova a interpretare l'errore dal corpo della risposta
+              return response.json().then(errData => {
+                // Genera un errore con il messaggio ricevuto dal server o uno di default
+                throw new Error(errData.message || `Accesso fallito. Stato: ${response.status}`);
+              }).catch(() => {
+                // Fallback se la risposta non è JSON o errData.message non è presente
+                throw new Error(`Accesso fallito. Stato: ${response.status} - ${response.statusText}`);
+              });
+            }
+            return response.json(); // Si presume che la risposta di successo contenga un token
+          })
+          .then(data => {
+            // Gestisci il successo
+            if (data.token) {
+              // Salva il token (localStorage è persistente tra le sessioni del browser)
+              localStorage.setItem('authToken', data.token);
+              // Salva userType se presente, utile per redirect o modifiche UI basate sul ruolo
+              if (data.userType) {
+                localStorage.setItem('userType', data.userType);
+              }
+              // Reindirizza alla dashboard
+              window.location.href = 'dashboard.html';
+            } else {
+              // Caso che può succedere se il server risponde 200 OK ma senza token
+              if (loginErrorMessage) loginErrorMessage.textContent = 'Accesso effettuato con successo, ma nessun token ricevuto.';
+            }
+          })
+          .catch(error => {
+            // Gestisci il fallimento (errore di rete o errore lanciato dalla gestione della risposta)
+            console.error('Errore di accesso:', error);
+            if (loginErrorMessage) {
+              loginErrorMessage.textContent = error.message || 'Si è verificato un errore imprevisto. Per favore riprova.';
+            }
+          })
+          .finally(() => {
+            // Riabilita il pulsante di accesso
+            if (loginButton) {
+              loginButton.disabled = false;
+              const loginButtonSpan = loginButton.querySelector('span');
+              if (loginButtonSpan) loginButtonSpan.textContent = 'Accedi';
+            }
           });
-        }
-        return response.json(); // Assuming success response includes a token
-      })
-      .then(data => {
-        // Handle success
-        if (data.token) {
-          // Store the token (localStorage is persistent across browser sessions)
-          localStorage.setItem('authToken', data.token);
-          // Store userType if provided, this could be useful for role-based redirects or UI changes
-          if (data.userType) {
-            localStorage.setItem('userType', data.userType);
-          }
-          // Redirect to dashboard
-          window.location.href = 'dashboard.html';
-        } else {
-          // This case might happen if the server responds with 200 OK but no token
-          if (loginErrorMessage) loginErrorMessage.textContent = 'Login successful, but no token received.';
-        }
-      })
-      .catch(error => {
-        // Handle failure (network error or error thrown from response handling)
-        console.error('Login error:', error);
-        if (loginErrorMessage) {
-          loginErrorMessage.textContent = error.message || 'An unexpected error occurred. Please try again.';
-        }
-      })
-      .finally(() => {
-        // Re-enable the login button
-        if (loginButton) {
-          loginButton.disabled = false;
-          const loginButtonSpan = loginButton.querySelector('span');
-          if (loginButtonSpan) loginButtonSpan.textContent = 'Log in';
-        }
-      });
     });
   } else {
-    console.warn('Login form not found.');
+    console.warn('Modulo di login non trovato.');
   }
 });

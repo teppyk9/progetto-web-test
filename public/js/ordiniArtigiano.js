@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   let artisanOrders = [];
-  let currentArtisanOrderFilter = 'All'; // Initial filter
+  let currentArtisanOrderFilter = 'All'; // Filtro iniziale
 
   const ordersTbody = document.getElementById('artisan-orders-tbody');
   const filterAllTab = document.getElementById('filter-artisan-orders-all');
@@ -17,48 +17,48 @@ document.addEventListener('DOMContentLoaded', () => {
     { el: filterCancelledTab, name: 'Cancelled' },
   ];
 
-  // --- Fetch Artisan Orders ---
+  // --- Recupera gli ordini dell'artigiano ---
   if (ordersTbody) {
     fetch('/api/artisan/orders')
-      .then(response => {
-        if (!response.ok) {
-          if (response.status === 401) {
-            throw new Error('Unauthorized: Please log in to view your orders.');
+        .then(response => {
+          if (!response.ok) {
+            if (response.status === 401) {
+              throw new Error('Non autorizzato: effettua il login per vedere i tuoi ordini.');
+            }
+            throw new Error(`Errore HTTP! stato: ${response.status}`);
           }
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(orders => {
-        artisanOrders = orders;
-        renderArtisanOrders(); // Initial render with 'All' filter
-        updateActiveTabStyle();
-      })
-      .catch(error => {
-        console.error('Error fetching artisan orders:', error);
-        ordersTbody.innerHTML = `<tr><td colspan="5" class="text-red-500 p-4 text-center">${error.message || 'Could not load your orders.'}</td></tr>`;
-      });
+          return response.json();
+        })
+        .then(orders => {
+          artisanOrders = orders;
+          renderArtisanOrders(); // Render iniziale con filtro 'All'
+          updateActiveTabStyle();
+        })
+        .catch(error => {
+          console.error('Errore nel caricamento degli ordini artigiano:', error);
+          ordersTbody.innerHTML = `<tr><td colspan="5" class="text-red-500 p-4 text-center">${error.message || 'Impossibile caricare i tuoi ordini.'}</td></tr>`;
+        });
   } else {
-    console.warn('Artisan orders table body not found.');
+    console.warn('Corpo tabella ordini artigiano non trovato.');
   }
 
-  // --- Render Artisan Orders Function ---
+  // --- Funzione per renderizzare gli ordini artigiano ---
   function renderArtisanOrders() {
     if (!ordersTbody) {
-      console.warn('Artisan orders table body not found for rendering.');
+      console.warn('Corpo tabella ordini artigiano non trovato per il rendering.');
       return;
     }
-    ordersTbody.innerHTML = ''; // Clear existing rows
+    ordersTbody.innerHTML = ''; // Pulisce le righe esistenti
 
     let filteredOrders = artisanOrders;
     if (currentArtisanOrderFilter !== 'All') {
-      filteredOrders = artisanOrders.filter(order => 
-        order.status && order.status.toLowerCase() === currentArtisanOrderFilter.toLowerCase()
+      filteredOrders = artisanOrders.filter(order =>
+          order.status && order.status.toLowerCase() === currentArtisanOrderFilter.toLowerCase()
       );
     }
 
     if (filteredOrders.length === 0) {
-      ordersTbody.innerHTML = `<tr><td colspan="5" class="text-gray-500 p-4 text-center">No orders found for this filter.</td></tr>`;
+      ordersTbody.innerHTML = `<tr><td colspan="5" class="text-gray-500 p-4 text-center">Nessun ordine trovato per questo filtro.</td></tr>`;
       return;
     }
 
@@ -66,45 +66,45 @@ document.addEventListener('DOMContentLoaded', () => {
       const tr = document.createElement('tr');
       tr.className = 'border-t border-t-[#e0e0e0]';
 
-      // Order ID
+      // ID Ordine
       const tdOrderId = document.createElement('td');
       tdOrderId.className = 'h-[72px] px-4 py-2 w-[400px] text-[#141414] text-sm font-normal leading-normal';
-      tdOrderId.textContent = order.orderId || 'N/A';
+      tdOrderId.textContent = order.orderId || 'N/D';
       tr.appendChild(tdOrderId);
 
-      // Date
+      // Data
       const tdDate = document.createElement('td');
       tdDate.className = 'h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal';
-      tdDate.textContent = order.date ? new Date(order.date).toLocaleDateString() : 'N/A';
+      tdDate.textContent = order.date ? new Date(order.date).toLocaleDateString() : 'N/D';
       tr.appendChild(tdDate);
 
-      // Customer
+      // Cliente
       const tdCustomer = document.createElement('td');
       tdCustomer.className = 'h-[72px] px-4 py-2 w-[400px] text-[#757575] text-sm font-normal leading-normal';
-      tdCustomer.textContent = order.customerName || (order.customer && order.customer.name) || 'N/A';
+      tdCustomer.textContent = order.customerName || (order.customer && order.customer.name) || 'N/D';
       tr.appendChild(tdCustomer);
-      
-      // Status
+
+      // Stato
       const tdStatus = document.createElement('td');
       tdStatus.className = 'h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal';
       const statusButton = document.createElement('button');
-      // Note: Tailwind classes for button styling might need adjustment if they are too generic
-      // or if specific styling per status is needed later.
+      // Nota: le classi Tailwind per il pulsante possono necessitare aggiustamenti se troppo generiche
+      // o se serve uno stile specifico per ogni stato in futuro.
       statusButton.className = 'flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-[#f2f2f2] text-[#141414] text-sm font-medium leading-normal w-full';
       const statusSpan = document.createElement('span');
       statusSpan.className = 'truncate';
-      statusSpan.textContent = order.status || 'N/A';
+      statusSpan.textContent = order.status || 'N/D';
       statusButton.appendChild(statusSpan);
       tdStatus.appendChild(statusButton);
       tr.appendChild(tdStatus);
 
-      // Actions
+      // Azioni
       const tdActions = document.createElement('td');
       tdActions.className = 'h-[72px] px-4 py-2 w-60 text-[#757575] text-sm font-bold leading-normal tracking-[0.015em]';
       const viewDetailsLink = document.createElement('a');
       viewDetailsLink.href = `dettaglioOrdineArtigiano.html?orderId=${encodeURIComponent(order.orderId)}`;
-      viewDetailsLink.textContent = 'View Details';
-      // Apply link styling if needed, e.g., viewDetailsLink.className = 'text-blue-600 hover:underline';
+      viewDetailsLink.textContent = 'Visualizza dettagli';
+      // Applicare stile link se necessario, es. viewDetailsLink.className = 'text-blue-600 hover:underline';
       tdActions.appendChild(viewDetailsLink);
       tr.appendChild(tdActions);
 
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Update Tab Styles ---
+  // --- Aggiorna lo stile della tab attiva ---
   function updateActiveTabStyle() {
     filterTabs.forEach(tabInfo => {
       if (tabInfo.el) {
@@ -136,11 +136,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Tab Filtering Logic ---
+  // --- Logica filtro tab ---
   filterTabs.forEach(tabInfo => {
     if (tabInfo.el) {
       tabInfo.el.addEventListener('click', (event) => {
-        // Prevent default for href="#" but not for actual links like the "All" tab
+        // Previeni default per href="#" ma non per link reali come la tab "All"
         if (tabInfo.el.getAttribute('href') === '#') {
           event.preventDefault();
         }
@@ -149,10 +149,10 @@ document.addEventListener('DOMContentLoaded', () => {
         updateActiveTabStyle();
       });
     } else {
-      console.warn(`Filter tab element for '${tabInfo.name}' not found.`);
+      console.warn(`Elemento tab filtro per '${tabInfo.name}' non trovato.`);
     }
   });
 
-  // Set initial active tab style (should be 'All' by default as per currentArtisanOrderFilter)
+  // Imposta lo stile della tab attiva iniziale (di default dovrebbe essere 'All')
   updateActiveTabStyle();
 });

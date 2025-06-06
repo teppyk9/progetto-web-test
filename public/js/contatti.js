@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Basic Client-Side Validation
       if (!name || !email || !subject || !message) {
         if (contactFormStatus) {
-          contactFormStatus.textContent = 'All fields are required.';
+          contactFormStatus.textContent = 'Tutti i campi sono obbligatori.';
           contactFormStatus.classList.add('text-red-500');
         }
         return;
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Basic email format validation
       if (!email.includes('@') || !email.includes('.')) {
         if (contactFormStatus) {
-          contactFormStatus.textContent = 'Please enter a valid email address.';
+          contactFormStatus.textContent = 'Inserisci un indirizzo email valido.';
           contactFormStatus.classList.add('text-red-500');
         }
         contactEmailInput.focus();
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (contactSendButton) {
         contactSendButton.disabled = true;
         const buttonSpan = contactSendButton.querySelector('span');
-        if (buttonSpan) buttonSpan.textContent = 'Sending...';
+        if (buttonSpan) buttonSpan.textContent = 'Invio in corso...';
       }
 
       fetch('/api/contact-form', {
@@ -59,43 +59,43 @@ document.addEventListener('DOMContentLoaded', () => {
           message: message,
         }),
       })
-      .then(response => {
-        if (!response.ok) {
-          // Try to parse error from response body, then fallback
-          return response.json().catch(() => {
-            throw new Error(`HTTP error! status: ${response.status} - ${response.statusText}`);
-          }).then(errData => {
-            throw new Error(errData.message || `Server error: ${response.status}`);
+          .then(response => {
+            if (!response.ok) {
+              // Try to parse error from response body, then fallback
+              return response.json().catch(() => {
+                throw new Error(`Errore HTTP! stato: ${response.status} - ${response.statusText}`);
+              }).then(errData => {
+                throw new Error(errData.message || `Errore del server: ${response.status}`);
+              });
+            }
+            return response.json(); // Assuming success response might contain some data, e.g., a confirmation message
+          })
+          .then(data => {
+            // Handle success
+            if (contactFormStatus) {
+              contactFormStatus.textContent = data.message || 'Messaggio inviato con successo!';
+              contactFormStatus.classList.add('text-green-500');
+            }
+            contactForm.reset(); // Clear the form fields
+          })
+          .catch(error => {
+            // Handle failure
+            console.error('Errore nell\'invio del modulo di contatto:', error);
+            if (contactFormStatus) {
+              contactFormStatus.textContent = error.message || 'Si è verificato un errore imprevisto. Riprova.';
+              contactFormStatus.classList.add('text-red-500');
+            }
+          })
+          .finally(() => {
+            // Re-enable the send button
+            if (contactSendButton) {
+              contactSendButton.disabled = false;
+              const buttonSpan = contactSendButton.querySelector('span');
+              if (buttonSpan) buttonSpan.textContent = 'Invia Messaggio';
+            }
           });
-        }
-        return response.json(); // Assuming success response might contain some data, e.g., a confirmation message
-      })
-      .then(data => {
-        // Handle success
-        if (contactFormStatus) {
-          contactFormStatus.textContent = data.message || 'Message sent successfully!';
-          contactFormStatus.classList.add('text-green-500');
-        }
-        contactForm.reset(); // Clear the form fields
-      })
-      .catch(error => {
-        // Handle failure
-        console.error('Contact form submission error:', error);
-        if (contactFormStatus) {
-          contactFormStatus.textContent = error.message || 'An unexpected error occurred. Please try again.';
-          contactFormStatus.classList.add('text-red-500');
-        }
-      })
-      .finally(() => {
-        // Re-enable the send button
-        if (contactSendButton) {
-          contactSendButton.disabled = false;
-          const buttonSpan = contactSendButton.querySelector('span');
-          if (buttonSpan) buttonSpan.textContent = 'Send Message';
-        }
-      });
     });
   } else {
-    console.warn('Contact form not found.');
+    console.warn('Modulo di contatto non trovato.');
   }
 });
